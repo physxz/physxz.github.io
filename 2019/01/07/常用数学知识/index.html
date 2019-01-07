@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
-  <title>电动力学 | Ethan</title>
+  <title>常用数学知识 | Ethan</title>
   <meta name="keywords" content="">
-  <meta name="description" content="电动力学 | Ethan">
+  <meta name="description" content="常用数学知识 | Ethan">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="坐标系坐标系直角坐标系极坐标系柱坐标系球坐标系积分微分泰勒展开复数">
 <meta property="og:type" content="article">
@@ -176,9 +176,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-电动力学" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <article id="post-常用数学知识" class="article article-type-post" itemscope="" itemprop="blogPost">
     
-        <h1 class="article-title">电动力学</h1>
+        <h1 class="article-title">常用数学知识</h1>
     
     <div class="article-meta">
         
@@ -186,7 +186,7 @@
         
         <span class="book">
             
-            <a href="javascript:" data-rel="基础物理">基础物理</a>
+            <a href="javascript:" data-rel="数学工具">数学工具</a>
             
         </span>
         
@@ -194,12 +194,12 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title="更新时间: 2019-01-07 18:13:16">2019-01-04 16:43</time>
+        创建时间:<time class="date" title="更新时间: 2019-01-07 21:29:53">2019-01-07 21:20</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:146</span>
+        <span>字数:33</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -218,7 +218,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#chapter-0-绪论"><span class="toc-text">chapter 0 绪论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#chapter-1-麦克斯韦方程组"><span class="toc-text">chapter 1 麦克斯韦方程组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-静电"><span class="toc-text">1.1 静电</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#坐标系"><span class="toc-text">坐标系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#坐标系-1"><span class="toc-text">坐标系</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#直角坐标系"><span class="toc-text">直角坐标系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#极坐标系"><span class="toc-text">极坐标系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#柱坐标系"><span class="toc-text">柱坐标系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#球坐标系"><span class="toc-text">球坐标系</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#积分"><span class="toc-text">积分</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#微分"><span class="toc-text">微分</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#泰勒展开"><span class="toc-text">泰勒展开</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#复数"><span class="toc-text">复数</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -233,24 +233,7 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="chapter-0-绪论"><a href="#chapter-0-绪论" class="headerlink" title="chapter 0 绪论"></a>chapter 0 绪论</h1><p>参考资料：复旦大学 <a href="https://pan.baidu.com/s/1qglY_GFDpcAAeP4ktsAh0g" target="_blank" rel="noopener">prof.周磊</a> 提取码：x3o7</p>
-<h1 id="chapter-1-麦克斯韦方程组"><a href="#chapter-1-麦克斯韦方程组" class="headerlink" title="chapter 1 麦克斯韦方程组"></a>chapter 1 麦克斯韦方程组</h1><h2 id="1-1-静电"><a href="#1-1-静电" class="headerlink" title="1.1 静电"></a>1.1 静电</h2><ol>
-<li><p>（电）源（受体）q $\to$ $\vec{j}$ （电流密度）（磁）源</p>
-</li>
-<li><p>库仑定律（实验定律）（两电荷之间的相互作用力）$\vec{F}$ </p>
-</li>
-<li><p>引入场（电荷分布）</p>
-<p>$$ \vec{E} (\vec{r}) = \frac{1} {4\pi\epsilon_0} \int {\frac{\rho(\vec{r’}) d\tau} {R^3}} {d} \vec{R} $$ </p>
-<p>$$\vec{F}=q\vec{E}$$ </p>
-<p>电荷分布产生场 $\to$ 作用于电荷q</p>
-</li>
-<li><p>研究一个矢量场，首先要研究他的散度和旋度</p>
-<p>散度（高斯定理）</p>
-<p>$$\nabla\cdot{\vec{E}} =\frac{\rho}{\epsilon_0}$$ </p>
-</li>
-<li></li>
-</ol>
-
+        <h1 id="坐标系"><a href="#坐标系" class="headerlink" title="坐标系"></a>坐标系</h1><h1 id="坐标系-1"><a href="#坐标系-1" class="headerlink" title="坐标系"></a>坐标系</h1><h2 id="直角坐标系"><a href="#直角坐标系" class="headerlink" title="直角坐标系"></a>直角坐标系</h2><h2 id="极坐标系"><a href="#极坐标系" class="headerlink" title="极坐标系"></a>极坐标系</h2><h2 id="柱坐标系"><a href="#柱坐标系" class="headerlink" title="柱坐标系"></a>柱坐标系</h2><h2 id="球坐标系"><a href="#球坐标系" class="headerlink" title="球坐标系"></a>球坐标系</h2><h1 id="积分"><a href="#积分" class="headerlink" title="积分"></a>积分</h1><h1 id="微分"><a href="#微分" class="headerlink" title="微分"></a>微分</h1><h1 id="泰勒展开"><a href="#泰勒展开" class="headerlink" title="泰勒展开"></a>泰勒展开</h1><h1 id="复数"><a href="#复数" class="headerlink" title="复数"></a>复数</h1>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 physxzhao@gmail.com </span>
     </div>
@@ -263,12 +246,12 @@
 
 
 <div class="article_copyright">
-    <p><span>文章标题:</span>电动力学</p>
-    <p><span>文章字数:</span><span class="post-count">146</span></p>
+    <p><span>文章标题:</span>常用数学知识</p>
+    <p><span>文章字数:</span><span class="post-count">33</span></p>
     <p><span>本文作者:</span><a href="javascript:void(0)" title="Ethan Zhao">Ethan Zhao</a></p>
-    <p><span>发布时间:</span>2019-01-04, 16:43:31</p>
-    <p><span>最后更新:</span>2019-01-07, 18:13:16</p>
-    <span>原始链接:</span><a class="post-url" href="/2019/01/04/电动力学/" title="电动力学">http://yoursite.com/2019/01/04/电动力学/</a>
+    <p><span>发布时间:</span>2019-01-07, 21:20:44</p>
+    <p><span>最后更新:</span>2019-01-07, 21:29:53</p>
+    <span>原始链接:</span><a class="post-url" href="/2019/01/07/常用数学知识/" title="常用数学知识">http://yoursite.com/2019/01/07/常用数学知识/</a>
     <p>
         <span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
