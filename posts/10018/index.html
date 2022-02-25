@@ -1,0 +1,817 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Shixin">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="自这台不舍得仍的老笔记本安装了Ubuntu，就开起了各种折腾之路。现在来折腾一下C51单片机吧。所用芯片为STR89C52RC。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux系统下玩转51单片机">
+<meta property="og:url" content="https://physxz.github.io/posts/10018/index.html">
+<meta property="og:site_name" content="Shixin&#39;s blog">
+<meta property="og:description" content="自这台不舍得仍的老笔记本安装了Ubuntu，就开起了各种折腾之路。现在来折腾一下C51单片机吧。所用芯片为STR89C52RC。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://physxz.github.io/img/20220118-STC89C52RC-kit.jpg">
+<meta property="article:published_time" content="2022-01-18T07:09:00.000Z">
+<meta property="article:modified_time" content="2022-02-25T08:35:41.599Z">
+<meta property="article:author" content="Shixin">
+<meta property="article:tag" content="VSCode">
+<meta property="article:tag" content="C51">
+<meta property="article:tag" content="SDCC">
+<meta property="article:tag" content="STR89C52RC">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://physxz.github.io/img/20220118-STC89C52RC-kit.jpg">
+  
+  
+  <title>Linux系统下玩转51单片机 - Shixin&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/email.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"physxz.github.io","root":"/","version":"1.8.13","typing":{"enable":true,"typeSpeed":70,"cursorChar":"❤","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2c6dc07d9ee870c7c5cde51c6acbce2d","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Shixin&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/bloom.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Linux系统下玩转51单片机">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-01-18 15:09" pubdate>
+        2022年1月18日下午3点09分
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      9.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      82 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Linux系统下玩转51单片机</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年2月25日下午4点35分
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>自这台不舍得仍的老笔记本安装了Ubuntu，就开起了各种折腾之路。现在来折腾一下C51单片机吧。所用芯片为STR89C52RC。<span id="more"></span></p>
+<h1 id="前言">前言</h1>
+<h2 id="单片机简介">单片机简介</h2>
+<p>单片机，属于微型控制器（MCU，Micrcontroller Unit）。51单片机是对兼容Intel 8051指令系统的单片机的统称，是8位单片机。主要品牌及产品有：</p>
+<ul>
+<li>Intel：80C31、80C51、87C51，80C32、80C52、87C52等；</li>
+<li>Atmel：89C51、89C52、89C2051，89S51(RC)，89S52(RC)等；</li>
+<li>Philips、华邦、Dallas（达拉斯）、Siemens等公司的许多产品；</li>
+<li>STC（宏晶）：STC89C51、STC90C51、STC11系列、STC15系列、STC8系列等。</li>
+</ul>
+<p>国内的STC单片机有89/90/10/11/12/15这几个大系列，每个系列的特点如下：</p>
+<ul>
+<li>89系列是传统的8051单片机，烧录方法有区别，但是功能上可以和AT89系列兼容，属于12T（1个机器周期=12个时钟周期）单片机</li>
+<li>90系列是89系列的改进型，12T单片机</li>
+<li>10和11系列是1T单片机，有PWM，4态IO接口，EEPROM等功能，但都没有ADC</li>
+<li>12系列是增强型功能的1T单片机，型号后缀<code>AD</code>的带ADC，后缀<code>S2</code>的除了ADC还带双串口</li>
+<li>15系列是最新的产品，内部集成了高精度R/C时钟，不需要外部晶振</li>
+</ul>
+<h2 id="stc89c52系列参数">STC89C52系列参数</h2>
+<p>宏晶<a target="_blank" rel="noopener" href="https://www.stcmcudata.com/datasheet/STC89C52.pdf">官方文档</a>。</p>
+<p>STC89C52和STC89C51的区别仅在于Flash和EEPROM大小，C51的Flash为4K而C52为8K，C51的EEPROM为9K而C52为5K。都有多种封装，常见的是体积较大的PDIP-40宽体双列</p>
+<ul>
+<li>Flash：8K bytes</li>
+<li>SRAM：512 bytes</li>
+<li>EEPROM：5KB</li>
+<li>I/O数量：35-bit（PDIP-40封装）</li>
+<li>看门狗定时器，MAX810复位电路</li>
+<li>3个16-bit定时器</li>
+<li>4个外部中断，一个7向量4级中断结构和全双工串行口</li>
+<li>最高运作频率35MHz，6T/12T可选</li>
+<li>UART串口：1个</li>
+<li>工作电压Vcc：5V-3.8V</li>
+</ul>
+<p>如果需要ADC, 可以选 STC12C5A60S2 系列, 1T型的指令时钟速度比普通STC89系列(12T)快, 做定时时要注意。</p>
+<p><img src="/ass/20220118-STC89C52RC.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>STC89C52系列单片机命名规则如下</p>
+<p><img src="/ass/20220118-STC89C52RC-name.png" srcset="/img/loading.gif" lazyload /></p>
+<p>STC89C52系列通过单片机表面最下面一行最后几个字母区分90C版本及HD版本。</p>
+<h1 id="工具安装">工具安装</h1>
+<h3 id="安装编译工具sdcc">安装编译工具SDCC</h3>
+<p>SDCC（Small Device C Compiler）是用于8位微控制器的免费开源软件，支持Windows, MacOS, Linux。<a target="_blank" rel="noopener" href="http://sdcc.sourceforge.net/doc/sdccman.pdf">sdcc手册</a>。</p>
+<ul>
+<li><p>库安装</p>
+<p>在终端输入<code>sudo apt install sdcc</code>安装，查看版本<code>sdcc -v</code>，返回版本为<code>3.8.0</code>，此方法安装的版本较老，可通过源码安装。</p></li>
+<li><p>源码安装</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://sourceforge.net/projects/sdcc/files/">下载</a>最新版<code>4.1.0</code></p></li>
+<li><p>解压<code>tar -xvjf sdcc-src-4.1.0.tar.bz2</code></p></li>
+<li><p>进入解压后的文件夹配置<code>./configure</code></p>
+<ul>
+<li>报错1:<code>configure: error: Cannot find required program bison.</code></li>
+<li>解决：<code>sudo apt install flex bison</code></li>
+<li>报错2:<code>configure: error: boost library not found (boost/graph/adjacency_list.hpp).</code></li>
+<li>解决：<code>sudo apt-get install libboost-date-time-dev libboost-program-options-dev libboost-system-dev libboost-filesystem-dev    libboost-iostreams-dev</code></li>
+<li>报错3:<code>configure: error: ./configure failed for device/lib/pic14</code>及<code>configure: error: gputils (gpasm, gplink, and gplib) are required but not found.</code></li>
+<li>解决：在配置时加上参数<code>--disable-pic14-port --disable-pic16-port</code></li>
+</ul></li>
+<li><p>再次配置<code>./configure --disable-pic14-port --disable-pic16-port</code></p></li>
+<li><p>编译<code>make</code>，运行时间较长。</p>
+<ul>
+<li><p>报错1：终端返回的信息往上翻可能会有如下提示</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">WARNING: <span class="hljs-string">&#x27;makeinfo&#x27;</span> is missing <span class="hljs-keyword">on</span> <span class="hljs-title">your</span> <span class="hljs-title">system</span>.<br>         You should only need <span class="hljs-keyword">it</span> <span class="hljs-keyword">if</span> you modified <span class="hljs-keyword">a</span> <span class="hljs-string">&#x27;.texi&#x27;</span> <span class="hljs-built_in">file</span>, <span class="hljs-keyword">or</span><br>         <span class="hljs-keyword">any</span> other <span class="hljs-built_in">file</span> indirectly affecting <span class="hljs-keyword">the</span> aspect <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> manual.<br>         You might want <span class="hljs-built_in">to</span> install <span class="hljs-keyword">the</span> Texinfo package:<br>         &lt;<span class="hljs-keyword">http</span>://www.gnu.org/software/texinfo/&gt;<br>         The spurious makeinfo call might also be <span class="hljs-keyword">the</span> consequence <span class="hljs-keyword">of</span><br>         <span class="hljs-keyword">using</span> <span class="hljs-keyword">a</span> buggy <span class="hljs-string">&#x27;make&#x27;</span> (AIX, DU, IRIX), <span class="hljs-keyword">in</span> which <span class="hljs-keyword">case</span> you might<br>         want <span class="hljs-built_in">to</span> install GNU make:<br>         &lt;<span class="hljs-keyword">http</span>://www.gnu.org/software/make/&gt;<br></code></pre></td></tr></table></figure></li>
+<li><p>解决：<code>sudo apt install texinfo</code></p></li>
+</ul></li>
+<li><p>再次编译<code>make</code></p></li>
+<li><p>安装<code>sudo make install</code></p></li>
+<li><p>添加环境变量（可能需要）</p>
+<p>在<code>vim /etc/profile</code>中添加代码<code>export PATH=/usr/local/bin:$PATH</code>，然后执行<code>source /etc/profile</code>使之生效。</p></li>
+</ul></li>
+<li><p>检查和测试</p>
+<ul>
+<li><p>查看版本号<code>sdcc -v</code>，应该输出版本<code>4.1.0</code></p></li>
+<li><p>查看库文件的位置<code>sdcc --print-search-dirs</code>，默认的8051库的位置是<code>/usr/local/share/sdcc/include/mcs51/</code></p></li>
+<li><p>测试代码<code>vim test01.c</code></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-keyword">char</span> test;<br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>&#123;<br>	test = <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>编译</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 产生test01.asm等文件</span><br>zhao@zhao-laptop:~/Documents/STC89C52RC/test01$ sdcc -c test01.c <br>zhao@zhao-laptop:~/Documents/STC89C52RC/test01$ tree .<br>.<br>├── test01.asm<br>├── test01.c<br>├── test01.lst<br>├── test01.rel<br>└── test01.sym<br><br>0 directories, 5 files<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 产生test01.ihx等文件</span><br>zhao@zhao-laptop:~/Documents/STC89C52RC/test01$ sdcc test01.c<br>zhao@zhao-laptop:~/Documents/STC89C52RC/test01$ tree .<br>.<br>├── test01.asm<br>├── test01.c<br>├── test01.ihx<br>├── test01.lk<br>├── test01.lst<br>├── test01.map<br>├── test01.mem<br>├── test01.rel<br>├── test01.rst<br>└── test01.sym<br><br>0 directories, 10 files<br></code></pre></td></tr></table></figure>
+<ul>
+<li>或者使用一行命令<code>sdcc test02.c -o test02.ihx</code></li>
+</ul></li>
+</ul></li>
+<li><p>卸载<code>sudo make uninstall</code></p></li>
+</ul>
+<h3 id="安装烧录工具stcgal">安装烧录工具stcgal</h3>
+<p>根据Github上<a target="_blank" rel="noopener" href="https://github.com/grigorig/stcgal">项目首页</a>的说明, 直接用<code>pip3 install stcgal</code>安装, 然后执行<code>stcgal -h</code>查看输出。</p>
+<h1 id="编译链接与烧录">编译链接与烧录</h1>
+<p>编写test02.c点亮P1.0的LED灯。<a target="_blank" rel="noopener" href="https://github.com/hungtcs-lab/8051-examples">这是</a>一个很好的8051单片机示例项目。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;mcs51/8051.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> LED1 P1_0</span><br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function">    LED1 </span>= <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="编译和链接">编译和链接</h3>
+<h4 id="单个文件">单个文件</h4>
+<p>可以这样直接编译</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sdcc test02.c -o test02.ihx<br></code></pre></td></tr></table></figure>
+<h4 id="多个文件">多个文件</h4>
+<p>C或者C++程序在运行过程中，首先要生成<code>.obj</code>（windows）或<code>.o</code>（Unix）等目标文件，这就是编译（compile）。然后把这些文件合成执行文件的动作就叫链接（link）。这两个过程完成后才会产生可执行文件。</p>
+<p>对于SDCC来说，编译生成中间文件<code>.rel</code>文件，然后链接生成<code>.ihx</code>文件。sdcc不支持多文件同时编译多个源文件，多个文件时，需要单个编译再链接。</p>
+<ul>
+<li><p>编译（生成<code>.rel</code>文件，其中<code>-c</code>参数表示<code>compile only</code>）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs bash">zhao@zhao-laptop:~/Projects/STC89C52RC/JiangKeDa/00-test$ tree<br>.<br>├── delay.c<br>├── delay.h<br>├── main.c<br>├── Makefile<br>├── SegmentDisplay.c<br>└── SegmentDisplay.h<br><br>0 directories, 6 files<br>zhao@zhao-laptop:~/Projects/STC89C52RC/JiangKeDa/00-test$ sdcc -c main.c &amp;&amp; sdcc -c delay.c &amp;&amp; sdcc -c SegmentDisplay.c<br>zhao@zhao-laptop:~/Projects/STC89C52RC/JiangKeDa/00-test$ tree<br>.<br>├── delay.asm<br>├── delay.c<br>├── delay.h<br>├── delay.lst<br>├── delay.rel<br>├── delay.sym<br>├── main.asm<br>├── main.c<br>├── main.lst<br>├── main.rel<br>├── main.sym<br>├── Makefile<br>├── SegmentDisplay.asm<br>├── SegmentDisplay.c<br>├── SegmentDisplay.h<br>├── SegmentDisplay.lst<br>├── SegmentDisplay.rel<br>└── SegmentDisplay.sym<br><br>0 directories, 18 files<br></code></pre></td></tr></table></figure></li>
+<li><p>链接（生成<code>.ihx</code>文件）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs bash">zhao@zhao-laptop:~/Projects/STC89C52RC/JiangKeDa/00-test$ sdcc main.rel delay.rel SegmentDisplay.rel <br>zhao@zhao-laptop:~/Projects/STC89C52RC/JiangKeDa/00-test$ tre<br>tred  tree  <br>zhao@zhao-laptop:~/Projects/STC89C52RC/JiangKeDa/00-test$ tree<br>.<br>├── delay.asm<br>├── delay.c<br>├── delay.h<br>├── delay.lst<br>├── delay.rel<br>├── delay.rst<br>├── delay.sym<br>├── main.asm<br>├── main.c<br>├── main.ihx<br>├── main.lk<br>├── main.lst<br>├── main.map<br>├── main.mem<br>├── main.rel<br>├── main.rst<br>├── main.sym<br>├── Makefile<br>├── SegmentDisplay.asm<br>├── SegmentDisplay.c<br>├── SegmentDisplay.h<br>├── SegmentDisplay.lst<br>├── SegmentDisplay.rel<br>├── SegmentDisplay.rst<br>└── SegmentDisplay.sym<br><br>0 directories, 25 files<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="烧录">烧录</h3>
+<p>使用<code>-P</code>指定协议（Protocals）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">stcgal -P stc89 test02.ihx<br></code></pre></td></tr></table></figure>
+<p>提示<code>Waiting for MCU, please cycle power:</code>关闭电源开关再打开</p>
+<p>默认波特率是19200，写入较慢，可以使用<code>-b</code>指定波特率</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">stcgal -P stc89 -b 115200 test002.ihx<br></code></pre></td></tr></table></figure>
+<p>端口一般不用指定（应该是<code>/dev/ttyUSB0</code>），会自动识别，如果同时有多个端口，使用<code>-p</code>指定端口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">stcgal -P stc89 -b 115200 dist/89/89.hex -p /dev/ttyUSB1<br></code></pre></td></tr></table></figure>
+<p>使用<code>-D</code>显示串口交互信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">stcgal -D -P stc89 -b 115200 test002.ihx<br></code></pre></td></tr></table></figure>
+<h3 id="出现的问题及解决办法">出现的问题及解决办法</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">stcgal -P stc89 test02.ihx<br><span class="hljs-comment"># 运行上述烧录命令提示以下错误信息</span><br>/dev/ttyUSB0 permission denied<br><span class="hljs-comment"># 加上sudo后，提示以下信息</span><br>sudo: stcgal: <span class="hljs-built_in">command</span> not found.<br></code></pre></td></tr></table></figure>
+<p>查看串口权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">zhao@zhao-laptop:/dev$ ls -la ttyUSB0<br>crw-rw---- 1 root dialout 188, 0 1月  18 21:35 ttyUSB0<br></code></pre></td></tr></table></figure>
+<p>发现串口属于<code>dialout</code>群组，通过几个命令查询群组</p>
+<p>查看自己所在的群组<code>groups</code></p>
+<p>查看所有可用群组<code>compgen -g</code></p>
+<p>应该可以看到自己不属于<code>dialout</code>群组，将自己加入这个群组获得权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo usermod -a -G dialout zhao<br></code></pre></td></tr></table></figure>
+<p>可能需要重启计算机，然后再执行烧录命令就可以了。</p>
+<h1 id="sdcc与keil的区别以及注意事项">SDCC与Keil的区别以及注意事项</h1>
+<p><a target="_blank" rel="noopener" href="https://hackaday.io/project/170540-adventures-with-a-stc89c52-development-board/log/177065-notes-on-converting-keil-8051-c-to-sdcc-c">这是</a>SDCC和Keil的不同之处。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//头文件调用</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;8052.h&gt;</span> <span class="hljs-comment">//sdcc</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;reg52.h&gt;</span> <span class="hljs-comment">//keil</span></span><br><br><span class="hljs-comment">//定义引脚</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> pin P0_0 <span class="hljs-comment">//sdcc，注意没有分号</span></span><br>sbit pin=P0^<span class="hljs-number">0</span>; <span class="hljs-comment">//keil，有分号</span><br><br><span class="hljs-comment">//定义中断函数</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Timer0</span><span class="hljs-params">()</span> __interrupt 1<span class="hljs-comment">//sdcc</span></span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Timer0</span><span class="hljs-params">()</span> interrupt 1<span class="hljs-comment">//keil</span></span><br><span class="hljs-function"></span><br><span class="hljs-function"><span class="hljs-comment">//关键字data、bdata、idata、xdata、code等</span></span><br><span class="hljs-function">__code <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> table[] </span>= &#123;&#125; <span class="hljs-comment">//sdcc</span><br><span class="hljs-keyword">unsigned</span> code <span class="hljs-keyword">char</span> table[] = &#123;&#125; <span class="hljs-comment">//keil</span><br><br><span class="hljs-comment">//sdcc需要自定义_nop_()函数（通过嵌入汇编语言）</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> _nop_() __asm NOP __endasm <span class="hljs-comment">//然后使用_nop_()函数即可</span></span><br>_nop_() <span class="hljs-comment">//keil在引用intrins.h头文件后直接使用_nop_()即可</span><br><br><span class="hljs-comment">//sdcc默认char是unsigned的，如需有符号char需要特定声明</span><br><span class="hljs-keyword">signed</span> <span class="hljs-keyword">char</span> <span class="hljs-comment">//sdcc 详见sdccman.pdf page8</span><br><span class="hljs-keyword">char</span> <span class="hljs-comment">//keil</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>取反和非操作的区别
+<ul>
+<li><code>!</code>符号是非，是位取反（是“位”），只针对位变量。</li>
+<li><code>~</code>符号是按位取反（是“按位”），针对字节变量</li>
+</ul></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//定义P1脚8个led灯</span><br>Pin1 = !Pin1; <span class="hljs-comment">//只控制P1_1脚的led灯开关</span><br>Pin1 = ~Pin1; <span class="hljs-comment">//控制P1的8个led灯开关</span><br><span class="hljs-comment">//定义P1.0一个led灯时，~有时不正常工作，需使用!</span><br>Pin10 = !Pin10; <span class="hljs-comment">//</span><br></code></pre></td></tr></table></figure>
+<h1 id="配合vscode使用">配合VSCode使用</h1>
+<p>参考<a target="_blank" rel="noopener" href="https://github.com/hungtcs-lab/8051-examples">1</a>，<a target="_blank" rel="noopener" href="https://github.com/haozewu/C51">2</a>。</p>
+<p>首先要安装<a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a>插件。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;mcs51/8051.h&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> LED1 P1_0</span><br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>  LED1 = <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>使用VSCode打开test02.c所在工程目录，<code>#include &lt;mcs51/8051.h&gt;</code>部分会提示<code>cannot open source file "mcs51/8051.h"</code>，将光标移动到该行，<code>Ctrl+.</code>然后点击<code>Edit "includePath" setting</code>，然后在工程目录下会生成<code>.vscode</code>文件夹，修改其下文件<code>c_cpp_properties.json</code>文件（只改<code>includePath</code>和<code>compilerPath</code>应该就可以）</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">&quot;configurations&quot;</span>: [<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Linux&quot;</span>,<br>            <span class="hljs-attr">&quot;includePath&quot;</span>: [<br>                <span class="hljs-string">&quot;/usr/local/share/sdcc/include/&quot;</span>,<br>                <span class="hljs-string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span><br>            ],<br>            <span class="hljs-attr">&quot;defines&quot;</span>: [],<br>            <span class="hljs-attr">&quot;compilerPath&quot;</span>: <span class="hljs-string">&quot;/usr/local/bin/sdcc&quot;</span>,<br>            <span class="hljs-attr">&quot;cStandard&quot;</span>: <span class="hljs-string">&quot;c11&quot;</span>,<br>            <span class="hljs-attr">&quot;cppStandard&quot;</span>: <span class="hljs-string">&quot;c++17&quot;</span>,<br>            <span class="hljs-attr">&quot;intelliSenseMode&quot;</span>: <span class="hljs-string">&quot;$&#123;default&#125;&quot;</span><br>        &#125;<br>    ],<br>    <span class="hljs-attr">&quot;version&quot;</span>: <span class="hljs-number">4</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>再看源文件，<code>LED1</code>处提示以下错误</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs actionscript">identifier <span class="hljs-string">&quot;P1_0&quot;</span> <span class="hljs-keyword">is</span> undefinedC/C++(<span class="hljs-number">20</span>)<br></code></pre></td></tr></table></figure>
+<p>查了半天资料，语法应该没有错误，是可以烧录进单片机并点亮P1.0的LED灯的。猜测可能是SDCC跟标准C之间的一些差异。不在乎这个错误提示的可以留着，想去掉的将光标移动到提示错误的地方，<code>Ctrl+.</code>选择<code>Disable error squiggles</code>，就会发现<code>.vscode</code>文件夹下多了一个<code>settings.json</code>文件。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>    <span class="hljs-attr">&quot;C_Cpp.errorSquiggles&quot;</span>: <span class="hljs-string">&quot;Disabled&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="编写makefile文件">编写Makefile文件</h2>
+<p>每次运行都要输入编译与烧录命令比较麻烦，可以编写<code>makefile</code>文件节省时间</p>
+<h3 id="单文件">单文件</h3>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs makefile">BUILD_DIR = build/<span class="hljs-comment"># 存放生成文件的文件夹</span><br>SRC_DIR= ./<br>INPUT=main.c<span class="hljs-comment"># 输入文件</span><br>OUTPUT=*.ihx<span class="hljs-comment"># 输出目标文件</span><br>PROTOCOL=stc89<span class="hljs-comment"># 协议</span><br>BaudRate=115200<span class="hljs-comment"># 波特率</span><br>DEVICE=/dev/ttyUSB0<span class="hljs-comment"># 串口号（一般不用指定），如需指定，在烧录指令行最后加上 -p $&#123;DEVICE&#125;</span><br><br><span class="hljs-section">build: $&#123;OUTPUT&#125;# 执行$&#123;OUTPUT&#125;指令（即创建文件夹并编译）</span><br><br><span class="hljs-section">flash: build# 烧录并执行build指令</span><br>	stcgal -P $&#123;PROTOCOL&#125; -b $&#123;BaudRate&#125; $&#123;BUILD_DIR&#125;$&#123;OUTPUT&#125;<br><br><span class="hljs-section">$&#123;OUTPUT&#125;:# 创建文件夹并编译</span><br>	mkdir build &amp;&amp; sdcc -o <span class="hljs-variable">$(BUILD_DIR)</span> $&#123;SRC_DIR&#125;$&#123;INPUT&#125;<br><br><span class="hljs-section">clean:# 清除存放生成文件的文件夹</span><br>	rm -rf $&#123;BUILD_DIR&#125;<br></code></pre></td></tr></table></figure>
+<p>直接输入<code>make clean &amp;&amp; make flash</code>即可清理文件并编译烧录程序。但这样仍然要在每一个项目下添加<code>makefile</code>文件，暂时没有找到更好的方法解决这一问题。</p>
+<h3 id="多文件">多文件</h3>
+<p>参考文章<a target="_blank" rel="noopener" href="https://www.cnworkshop.xyz/Electronic/C8051F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">1</a>，<a target="_blank" rel="noopener" href="https://seisman.github.io/how-to-write-makefile/index.html">2</a>，<a target="_blank" rel="noopener" href="https://adamsq.github.io/blog/2015/05/04/sdcc2/">3</a>。多文件只能依次编译，不同项目需要更改Makefile的编译和链接部分。</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs makefile">BLD_DIR = build/<br><br><span class="hljs-section">download: main.ihx</span><br>	stcgal -P stc89 <span class="hljs-variable">$(BLD_DIR)</span>main.ihx<br><span class="hljs-comment">#烧录</span><br><br><span class="hljs-section">main.ihx: main.rel delay.rel SegmentDisplay.rel</span><br>	sdcc main.rel delay.rel SegmentDisplay.rel ;\<br>	mkdir <span class="hljs-variable">$(BLD_DIR)</span> ;\<br>	mv *.lk *.asm *.lst *.mem *.rst *.rel *.sym *.ihx *.map <span class="hljs-variable">$(BLD_DIR)</span><br><span class="hljs-comment">#多文件链接并将生成文件移入build文件夹</span><br><br><span class="hljs-section">main.rel: main.c</span><br>	sdcc -c main.c<br><span class="hljs-section">delay.rel: delay.c</span><br>	sdcc -c delay.c<br><span class="hljs-section">SegmentDisplay.rel: SegmentDisplay.c</span><br>	sdcc -c SegmentDisplay.c<br><span class="hljs-comment">#多文件编译编译</span><br>	<br>.PHONY : clean<br><span class="hljs-section">clean:</span><br>	-rm -rf <span class="hljs-variable">$(BLD_DIR)</span><br><span class="hljs-comment">#	-rm -rf *.lk *.asm *.lst *.mem *.rst *.rel *.sym *.ihx *.map</span><br><span class="hljs-comment">#清除生成文件</span><br></code></pre></td></tr></table></figure>
+<h1 id="串口调试">串口调试</h1>
+<p>与单片机打交道经常需要串口通信，这就需要串口工具。在VScode里找到一个串口调试工具，但是目前还不支持Linux系统，只能找独立软件，搜索一番后，<a target="_blank" rel="noopener" href="https://gitlab.com/cutecom/cutecom/-/releases">CuteCom</a>是个不错的的选择。</p>
+<p>可以直接<code>sudo apt install cutecom</code>，但是版本很老，是5年前的0.30.3版本，我们还是用源码安装（虽然源码也是3年前的。。。）。</p>
+<p>从项目地址下载最新版后解压</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">tar -xzvf cutecom-master.tar.gz cutecom-master/<br></code></pre></td></tr></table></figure>
+<p>进入文件夹并<code>cmake</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> cutecom-master/<br>cmake .<br></code></pre></td></tr></table></figure>
+<p>有可能会提示错误<code>Could not find a package configuration file provided by "Qt5Widgets" with any of the following names: Qt5WidgetsConfig.cmake / qt5widgets-config.cmake</code>。需要安装<code>qt5</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install qtbase5-dev<br>sudo apt install libqt5serialport5-dev<br></code></pre></td></tr></table></figure>
+<p>再次执行<code>cmake</code>，成功。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">zhao@zhao-laptop:~/Downloads/cutecom-master$ cmake .<br>-- Configuring <span class="hljs-keyword">done</span><br>-- Generating <span class="hljs-keyword">done</span><br>-- Build files have been written to: /home/zhao/Downloads/cutecom-master<br></code></pre></td></tr></table></figure>
+<p>然后再执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo make<br>sudo make install<br></code></pre></td></tr></table></figure>
+<p>检查是否安装正确</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">zhao@zhao-laptop:~/Downloads/cutecom-master$ cutecom -h<br>Usage: cutecom [options]<br>CuteCom - Serial Terminal 0.51.0<br><br>Options:<br>  -h, --<span class="hljs-built_in">help</span>               Displays this <span class="hljs-built_in">help</span>.<br>  -s, --session &lt;session&gt;  Open a named &lt;session&gt;<br></code></pre></td></tr></table></figure>
+<p>可以看到0.51.0版本已安装完毕。打开软件</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">cutecom</span><br></code></pre></td></tr></table></figure>
+<p><img src="/ass/20220118-cutecom.png" srcset="/img/loading.gif" lazyload /></p>
+<p>点击右侧<code>Settings</code>可以打开串口设置界面，选择串口号，选择程序中对应的波特率，点击<code>Open</code>就可以打开串口进行通信了。要发送数据给串口设备，就在<code>Input</code>中输入数据，如果是数字要选用16进制<code>Hex</code>，如果是文本格式要选用<code>None</code>。如果程序要再次编译运行，需要先点击<code>Close</code>停止CuteCom。</p>
+<h1 id="一些问题">一些问题</h1>
+<h2 id="单片机的存储器">51单片机的存储器</h2>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37324376/article/details/119968934">参考</a>。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/38339306">ROM, FLASH和RAM的区别</a>。</p>
+<h2 id="时序图">时序图</h2>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/qsyll0916/p/7711098.html">看懂时序图</a>。</p>
+<p><a target="_blank" rel="noopener" href="https://www.eet-china.com/mp/a8203.html">参考</a>。</p>
+<h2 id="波特率初值表">波特率初值表</h2>
+<figure>
+<img src="/ass/20220209-baud-rate-initial-value.png" srcset="/img/loading.gif" lazyload alt="img" /><figcaption aria-hidden="true">img</figcaption>
+</figure>
+<h2 id="c语言知识点">C语言知识点</h2>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/liuchunjie11/article/details/80041472">单引号vs双引号</a>。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/leonharetd/article/details/8665363">参考</a>。</p>
+<h1 id="参考资料">参考资料</h1>
+<p>感谢<a target="_blank" rel="noopener" href="https://www.cnblogs.com/milton/p/14994533.html">这篇文章</a>，讲的很详细。</p>
+<p>还有这个大佬写的<a target="_blank" rel="noopener" href="http://www.51hei.com/bbs/dpj-190291-1.html">一篇</a>，补充了安装SDCC的一些细节。</p>
+<p>还有<a target="_blank" rel="noopener" href="https://www.cnworkshop.xyz/Electronic/C8051F%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">一篇</a>。</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/64994189/how-does-c-programming-work-with-no-headers">printf and putchar</a>。</p>
+<p>汇编相关<a target="_blank" rel="noopener" href="https://blog.csdn.net/Neutionwei/article/details/118116078?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-3-118116078.pc_agg_new_rank&amp;utm_term=%E5%BE%AE%E7%A7%92%E7%BA%A7%E5%BB%B6%E6%97%B6%E5%87%BD%E6%95%B0&amp;spm=1000.2123.3001.4430">1</a>, <a target="_blank" rel="noopener" href="https://blog.csdn.net/Neutionwei/article/details/117899311">2</a>。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%A1%AC%E4%BB%B6/">硬件</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/VSCode/">VSCode</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C51/">C51</a>
+                    
+                      <a class="hover-with-bg" href="/tags/SDCC/">SDCC</a>
+                    
+                      <a class="hover-with-bg" href="/tags/STR89C52RC/">STR89C52RC</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+					  <strong>本文作者: </strong><a href="/">Shixin</a><br>
+					  <strong>本文链接: </strong><a href="https://physxz.github.io/posts/10018/">https://physxz.github.io/posts/10018/</a><br>
+					  <strong>版权声明: </strong>本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/10019/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Linux系统下用VSCode玩Arduino</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/10017/">
+                        <span class="hidden-mobile">关于人生未来之路的一点思考</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"peSlMsKe4nkYHz6YiMvqKAO5-gzGzoHsz","appKey":"6CkCA95u7NGj6f4flvSRyd7p","path":"window.location.pathname","placeholder":"昵称处填入QQ号自动获取QQ昵称头像和邮箱，有了邮箱会收到回复提醒哟，快来试试吧\\^o^/","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+    
+  </div>
+  
+  <div>
+    <br>© 2020-2022 <a href="https://babblingme.gitee.io" target="_blank" rel="nofollow noopener">Shixin</a>. All Rights Reserved.<br/>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次 •
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人 •
+    </span>
+    
+    
+    <!-- 网站运行时间 -->
+	<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+	<script>
+		var now = new Date(); 
+		function createtime() { 
+			var grt= new Date("03/25/2020 00:00:00");//在此处修改你的建站时间
+			now.setTime(now.getTime()+250); 
+			days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+			hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+			if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+			mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+			seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+			snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+			document.getElementById("timeDate").innerHTML = " 本站已安全运行 "+dnum+" 天 "; 
+			document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+		} 
+		setInterval("createtime()",250);
+	</script>
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2c6dc07d9ee870c7c5cde51c6acbce2d";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+  
+<script src="/js/sakura.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

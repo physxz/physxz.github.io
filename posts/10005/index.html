@@ -1,0 +1,827 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Shixin">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本文主要涉及Typora编辑器的markdown语法，可能与其他编辑器稍有差异。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown语法小记">
+<meta property="og:url" content="https://physxz.github.io/posts/10005/index.html">
+<meta property="og:site_name" content="Shixin&#39;s blog">
+<meta property="og:description" content="本文主要涉及Typora编辑器的markdown语法，可能与其他编辑器稍有差异。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://physxz.github.io/img/20200406-markdown.png">
+<meta property="article:published_time" content="2020-04-06T04:10:58.000Z">
+<meta property="article:modified_time" content="2021-12-27T05:09:17.929Z">
+<meta property="article:author" content="Shixin">
+<meta property="article:tag" content="LaTeX">
+<meta property="article:tag" content="markdown">
+<meta property="article:tag" content="HTML">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://physxz.github.io/img/20200406-markdown.png">
+  
+  
+  <title>Markdown语法小记 - Shixin&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/email.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"physxz.github.io","root":"/","version":"1.8.13","typing":{"enable":true,"typeSpeed":70,"cursorChar":"❤","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2c6dc07d9ee870c7c5cde51c6acbce2d","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Shixin&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/bloom.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Markdown语法小记">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-04-06 12:10" pubdate>
+        2020年4月6日中午12点10分
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.1k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      26 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Markdown语法小记</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年12月27日下午1点09分
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>本文主要涉及Typora编辑器的markdown语法，可能与其他编辑器稍有差异。<span id="more"></span></p>
+<p>Typora 采用标准为 <a target="_blank" rel="noopener" href="https://help.github.com/articles/github-flavored-markdown/">GitHub Flavored Markdown</a> 。详情参阅 <a target="_blank" rel="noopener" href="https://support.typora.io/Markdown-Reference/">官方参考文档</a></p>
+<h1 id="markdown">Markdown</h1>
+<h2 id="公式">公式</h2>
+<p><strong>想用公式一定要在front-matter里开启 <code>math: true</code> 啊！！血的教训！！！</strong></p>
+<h3 id="公式编号及引用">公式编号及引用</h3>
+<div class="note note-info">
+            <p><small>Edge浏览器公式显示有问题（加 <code>\tag{}</code> 时），暂时未解决，最好改用Chrome。</small></p>
+          </div>
+<p>typora的自动编号功能不是很好用，</p>
+<ul>
+<li>有些公式不想编号，不知道如何去掉编号；</li>
+<li>不知道如何更改编号样式，只能 (1) (2)... 不能 (1.1) (2.2)...</li>
+</ul>
+<p>我暂时没有找到解决办法， <a target="_blank" rel="noopener" href="https://support.typora.io/Math/#cross-reference">官方文档</a> 也没有给出明确解答。</p>
+<p>行间公式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs latex">$$<br>y=sin(x) \label&#123;first&#125; \tag&#123;1.1&#125;<br>\text&#123;, 在这可加文字&#125;<br>$$<br></code></pre></td></tr></table></figure>
+<p><span class="math display">\[
+y=sin(x) \label{first} \tag{1.1}
+\text{, 在这可加文字}
+\]</span></p>
+<p>引用公式（含括号） <span class="math inline">\(\eqref{first}\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">`$\eqref&#123;first&#125;$`<br></code></pre></td></tr></table></figure>
+<p>引用公式（不含括号） <span class="math inline">\(\ref{first}\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">`$\ref&#123;first&#125;$`<br></code></pre></td></tr></table></figure>
+<p>注意，引用公式时公式内必须加 <code>\label&#123;&#125;</code> 及 <code>\tag&#123;&#125;</code> 。</p>
+<h2 id="特殊字符">特殊字符</h2>
+<h3 id="希腊字母">希腊字母</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><code>\delta</code></th>
+<th style="text-align: left;"><span class="math inline">\(\delta\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>\Delta</code></td>
+<td style="text-align: left;"><span class="math inline">\(\Delta\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>更多 <a target="_blank" rel="noopener" href="https://blog.csdn.net/Katherine_hsr/article/details/79179622">详见</a></p>
+<h2 id="链接">链接</h2>
+<p>markdown插入链接 <a target="_blank" rel="noopener" href="https://babblingme.gitee.io">Shixin</a></p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-attr">[Shixin]</span>(<span class="hljs-attribute">https</span>:<span class="hljs-comment">//babblingme.gitee.io)</span><br></code></pre></td></tr></table></figure>
+<p>可如果链接中包含<code>()</code>该如何处理？ <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Plasma_(physics)">Plasma(physics)</a></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">[Plasma(physics)](https:<span class="hljs-regexp">//</span>en.wikipedia.org<span class="hljs-regexp">/wiki/</span>Plasma_(physics))<br></code></pre></td></tr></table></figure>
+<p>这样最后一个右括号 <code>)</code> 会露在外边，解决办法：</p>
+<ul>
+<li><p>将链接转换到底部</p>
+<p>第二行代码不会显示在网页中 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Plasma_(physics)" title="可以在这里添加标题">Plasma(physics)</a></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">[Plasma(physics)][<span class="hljs-number">1</span>]<br>[<span class="hljs-number">1</span>]:https:<span class="hljs-regexp">//</span>en.wikipedia.org<span class="hljs-regexp">/wiki/</span>Plasma_(physics) 可以在这里添加标题<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="脚注">脚注</h2>
+<p>这里是脚注，语法为 <code>&lt;sup id="fnref:1" class="footnote-ref"&gt;&lt;a href="#fn:1" rel="footnote"&gt;&lt;span class="hint--top hint--rounded" aria-label="</code> 。 "&gt;<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Plasma_(physics)" title="可以在这里添加标题">1</a></span></a></sup><code>&lt;sup id="fnref:1" class="footnote-ref"&gt;&lt;a href="#fn:1" rel="footnote"&gt;&lt;span class="hint--top hint--rounded" aria-label="</code> 。 "&gt;<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Plasma_(physics)" title="可以在这里添加标题">1</a></span></a></sup></p>
+<h1 id="html">HTML</h1>
+<p>HTML语法教程可参见 <a target="_blank" rel="noopener" href="https://www.runoob.com/html/html-tutorial.html">这里</a> 。</p>
+<h2 id="字体">字体</h2>
+<p>两种方法，字体大小不太一致</p>
+<ul>
+<li><p>HTML</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">font</span> <span class="hljs-attr">color</span>=<span class="hljs-string">&quot;blue&quot;</span>&gt;</span>示例<span class="hljs-tag">&lt;/<span class="hljs-name">font</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p><font color="blue">示例</font></p></li>
+<li><p><span class="math inline">\(LaTeX\)</span></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs latex">$\color&#123;blue&#125;&#123;好吧&#125;$ <br></code></pre></td></tr></table></figure>
+<p><span class="math inline">\(\color{blue}{好吧}\)</span></p></li>
+</ul>
+<h2 id="空格">空格</h2>
+<p>markdown中段首直接用空格键输入空格是无效的（在网页中不显示），可以采用如下几种方式</p>
+<ul>
+<li><p>全角空格（推荐）</p>
+<p>一般输入法切换全角模式为 <code>Shift+空格</code> ，微软自带输入法按了没反应，是没开快捷键，可查看 <a target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/1691662342164738068.html">这里</a> 设置。</p>
+<p>　　切换为全角模式之后直接按两个空格就是两个汉字的宽度。</p></li>
+<li><p>手动全角空格 <code>&amp;emsp;</code></p>
+<p>  这里使用了2个<abbr title="em space"><code>&amp;emsp;</code></abbr>，不要漏掉分号；em意思可以参见 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Em_(typography)" title="em">这里</a></p></li>
+<li><p>手动半角空格 <code>&amp;nbsp;</code> （不建议）</p>
+<p>        这里使用了8个<abbr title="non-breaking space"><code>&amp;nbsp;</code></abbr>，同样不要漏掉分号；</p></li>
+</ul>
+<h2 id="缩写">缩写</h2>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">2020年是哈尔滨工业大学（<span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Harbin Institute of Technology&quot;</span>&gt;</span>HIT<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span>）建校100周年。<br></code></pre></td></tr></table></figure>
+<p>2020年是哈尔滨工业大学（<abbr title="Harbin Institute of Technology">HIT</abbr>）建校100周年。</p>
+<h2 id="对齐">对齐</h2>
+<ul>
+<li><p>右对齐</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">align</span>=<span class="hljs-string">&quot;right&quot;</span>&gt;</span>哈尔滨工业大学<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p align="right">
+<p>哈尔滨工业大学</p>
+</p></li>
+<li><p>居中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">center</span>&gt;</span>建校100周年庆<span class="hljs-tag">&lt;/<span class="hljs-name">center</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<center>
+<p>建校100周年庆</p>
+</center></li>
+</ul>
+<h2 id="便签">便签</h2>
+<p>可通过以下两种方式加入便签</p>
+<ul>
+<li><p>HTML（普适）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;note note-info&quot;</span>&gt;</span>这里是primary便签，不支持`markdown`<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p class="note note-info">
+<p>这里是primary便签，不支持<code>markdown</code></p>
+</p></li>
+<li><p>特定代码（需要添加此功能）</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mel">&#123;% note <span class="hljs-keyword">warning</span> %&#125;<br>这里是<span class="hljs-keyword">warning</span>便签，支持<span class="hljs-string">`markdown`</span><br>&#123;% endnote %&#125;<br></code></pre></td></tr></table></figure>
+<div class="note note-warning">
+            <p>这里是warning便签，支持<code>markdown</code></p>
+          </div></li>
+</ul>
+<p>其他可选便签 <a target="_blank" rel="noopener" href="https://fluid-dev.github.io/hexo-fluid-docs/guide/#note-%E6%A0%87%E7%AD%BE">详见</a> 。</p>
+<h2 id="锚点">锚点</h2>
+<p>两种方法，在markdown中不能跳转，但到网页中就可以了</p>
+<ul>
+<li><p>markdown</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[<span class="hljs-string">这里链接到便签</span>](<span class="hljs-link">#便签</span>)<br></code></pre></td></tr></table></figure>
+<p><a href="#便签">这里链接到便签</a></p></li>
+<li><p>HTML</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#便签&quot;</span>&gt;</span>这里也链接到便签<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p><a href="#便签">这里也链接到便签</a></p></li>
+</ul>
+<p>注意两点（以上两种方法都是）</p>
+<ul>
+<li><p>不管几级标题都用一个 <code>#</code> ，如上示例</p></li>
+<li><p>锚点跳转目标中如有空格或英文点号 <code>.</code> ，要替换成 <code>-</code> ，如下锚点目标</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section">### 1.1 哈工大校史</span><br></code></pre></td></tr></table></figure>
+<p>锚点语法应该为</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">[<span class="hljs-string">示例</span>](<span class="hljs-link">#1-1-哈工大校史</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;#1-1-哈工大校史&quot;</span>&gt;</span>示例<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="折叠块">折叠块</h2>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">details</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">summary</span>&gt;</span>点击查看<span class="hljs-tag">&lt;/<span class="hljs-name">summary</span>&gt;</span><br>    这里是隐藏的内容。<span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><br>    暂时不支持markdown, latex。<br>    主题开发者说会考虑支持，坐等。<br><span class="hljs-tag">&lt;/<span class="hljs-name">details</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<details>
+<summary>
+点击查看
+</summary>
+这里是隐藏的内容。<br/> 暂时不支持markdown, latex。 主题开发者说会考虑支持，坐等。
+</details>
+<h1 id="typora">Typora</h1>
+<h2 id="快捷键">快捷键</h2>
+<p>详见 <a target="_blank" rel="noopener" href="http://support.typora.io/Shortcut-Keys/">官方文档</a></p>
+<h3 id="自定义快捷键">自定义快捷键</h3>
+<blockquote>
+<p><code>Ctrl+,</code> → <code>通用</code> → <code>打开高级设置</code> → <code>conf.user.json</code> → <code>Custom key binding</code></p>
+</blockquote>
+<p>添加自定义快捷键即可，如下</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-comment">// Custom key binding, which will override the default ones.</span><br><span class="hljs-string">&quot;keyBinding&quot;</span>: &#123;<br>  <span class="hljs-comment">// for example: </span><br>  <span class="hljs-comment">// &quot;Always on Top&quot;: &quot;Ctrl+Shift+P&quot;</span><br>  <span class="hljs-attr">&quot;刷新所有数学公式&quot;</span>: <span class="hljs-string">&quot;F5&quot;</span><br>&#125;,<br></code></pre></td></tr></table></figure>
+<p>注意，只有在菜单栏中有的功能才可以设置快捷键，且不论中英文，内容必须与菜单栏中内容一致。添加完成后重启typora，就会在菜单栏中看到原先没有快捷键功能有了你设定的快捷键。</p>
+<p><br/></p>
+<center>
+持 续 更 新 中 ， 嘤 嘤 嘤 . . .
+</center>
+<br/>
+<section class="footnotes">
+<div class="footnote-list">
+<ol>
+<li>
+<span id="fn:1" class="footnote-text"><span>这里是脚注内容，语法为 <code>&lt;a href="#fnref:1" rev="footnote" class="footnote-backref"&gt; ↩︎&lt;/a&gt;&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span id="fn:1" class="footnote-text"&gt;&lt;span&gt;</code> 。 <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+</li>
+</ol>
+</div>
+</section>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/LaTeX/">LaTeX</a>
+                    
+                      <a class="hover-with-bg" href="/tags/markdown/">markdown</a>
+                    
+                      <a class="hover-with-bg" href="/tags/HTML/">HTML</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+					  <strong>本文作者: </strong><a href="/">Shixin</a><br>
+					  <strong>本文链接: </strong><a href="https://physxz.github.io/posts/10005/">https://physxz.github.io/posts/10005/</a><br>
+					  <strong>版权声明: </strong>本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/10006/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">关于Typora插入相对路径图片问题</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/10004/">
+                        <span class="hidden-mobile">等离子体物理学导论01引言</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"peSlMsKe4nkYHz6YiMvqKAO5-gzGzoHsz","appKey":"6CkCA95u7NGj6f4flvSRyd7p","path":"window.location.pathname","placeholder":"昵称处填入QQ号自动获取QQ昵称头像和邮箱，有了邮箱会收到回复提醒哟，快来试试吧\\^o^/","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+    
+  </div>
+  
+  <div>
+    <br>© 2020-2022 <a href="https://babblingme.gitee.io" target="_blank" rel="nofollow noopener">Shixin</a>. All Rights Reserved.<br/>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次 •
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人 •
+    </span>
+    
+    
+    <!-- 网站运行时间 -->
+	<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+	<script>
+		var now = new Date(); 
+		function createtime() { 
+			var grt= new Date("03/25/2020 00:00:00");//在此处修改你的建站时间
+			now.setTime(now.getTime()+250); 
+			days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+			hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+			if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+			mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+			seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+			snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+			document.getElementById("timeDate").innerHTML = " 本站已安全运行 "+dnum+" 天 "; 
+			document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+		} 
+		setInterval("createtime()",250);
+	</script>
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2c6dc07d9ee870c7c5cde51c6acbce2d";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+  
+<script src="/js/sakura.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

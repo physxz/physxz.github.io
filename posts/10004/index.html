@@ -1,0 +1,838 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Shixin">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="It is estimated that 99.999% of the visible universe is in the plasma state.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="等离子体物理学导论01引言">
+<meta property="og:url" content="https://physxz.github.io/posts/10004/index.html">
+<meta property="og:site_name" content="Shixin&#39;s blog">
+<meta property="og:description" content="It is estimated that 99.999% of the visible universe is in the plasma state.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://physxz.github.io/img/20200405-plasma.jpg">
+<meta property="article:published_time" content="2020-04-05T10:37:07.000Z">
+<meta property="article:modified_time" content="2021-12-27T05:07:59.347Z">
+<meta property="article:author" content="Shixin">
+<meta property="article:tag" content="plasma">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://physxz.github.io/img/20200405-plasma.jpg">
+  
+  
+  <title>等离子体物理学导论01引言 - Shixin&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/email.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"physxz.github.io","root":"/","version":"1.8.13","typing":{"enable":true,"typeSpeed":70,"cursorChar":"❤","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2c6dc07d9ee870c7c5cde51c6acbce2d","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Shixin&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/bloom.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="等离子体物理学导论01引言">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-04-05 18:37" pubdate>
+        2020年4月5日晚上6点37分
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.9k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      58 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">等离子体物理学导论01引言</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年12月27日下午1点07分
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>It is estimated that 99.999% of the visible universe is in the plasma state. <span id="more"></span> <sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://www.plasma-universe.com/99-999-plasma/
+">[1]</span></a></sup></p>
+<hr />
+<p><em>本系列笔记主要参考<a target="_blank" rel="noopener" href="http://www.seas.ucla.edu/~ffchen/">Francis F. Chen</a>的经典教科书《<a target="_blank" rel="noopener" href="https://link.springer.com/content/pdf/10.1007%2F978-3-319-22309-4.pdf">Introduction to Plasma Physics and Controlled Fusion</a>》，并结合其他参考资料和自己的理解进行适当改动或延申。</em></p>
+<p><em>笔记类文章我会挑重点写，侧重自己的理解，起到整理知识的作用，方便以后查阅。若真有感兴趣的朋友可自行查阅资料或留言讨论。</em></p>
+<h2 id="自然界等离子体">1.1 自然界等离子体</h2>
+<p>如前所述，宇宙中约99.999%的<u>可观测</u>物质均为等离子体<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="不可观测物质占比要大得多。暗能量约68%，暗物质约27%，普通物质仅占约不到5%。也就是说人类处于5%中的1%。详见
+">[2]</span></a></sup>，如恒星、星云、星际间物质。形如对人类来说算是庞然大物的地球等行星却成了极微小的存在，足见天地之无穷。</p>
+<p>等离子体一般称之为“物质的第四态”，但它不像固液气之间有物理量的突然变化（相变），而且近些年随着等离子体物理的发展，研究对象不在只局限于与气体性质更接近的电离气体，而出现了与液体甚至固体性质更接近的强耦合等离子体，如等离子体晶体。当然还有非中性等离子体、单分量等离子体、夸克-胶子等离子体等特殊等离子体，总之“物质第四态”这个说法是有待探讨。详见王晓刚教授所著《<a target="_blank" rel="noopener" href="https://book.douban.com/subject/30434805/">等离子体物理基础</a>》（这书真的一点也不基础。。）引言的讨论。</p>
+<p>但本文主要讨论一般意义上的等离子体，即<strong>电离气体</strong>。关于其他类型等离子体以后可以考虑写个科普性的文章。</p>
+<h3 id="saha方程">Saha方程</h3>
+<p>印度物理学家 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Meghnad_Saha">梅格纳德·萨哈</a> 于1920年提出萨哈电离方程 <span class="math display">\[
+\frac{n_i}{n_n}\approx2.4\times10^{21}\frac{T^{3/2}}{n_i}e^{-{U_i/k_BT}}
+\label{1.1}\tag{1.1}
+\]</span> 这里<span class="math inline">\(n_i\)</span>和<span class="math inline">\(n_n\)</span>分别是离子密度和中性粒子密度（<span class="math inline">\(m^3\)</span>），<span class="math inline">\(T\)</span>是气体温度（<span class="math inline">\(K\)</span>），<span class="math inline">\(k_B\)</span>是玻尔兹曼常数（<span class="math inline">\(1.38\times10^{-23}m^2kgs^{-2}{K}^{-1}\)</span>），<span class="math inline">\(U_i\)</span>是电离能（剥离原子最外层电子所需的能量<span class="math inline">\(J\)</span>）。</p>
+<p>我们来进行估算。对于室温下的普通空气，<span class="math inline">\(n_n\approx3\times10^{25}m^{-3}\)</span>，<span class="math inline">\(T\approx300K\)</span>，<span class="math inline">\(U_i=14.5eV\)</span>（氮气）（<span class="math inline">\(1\ eV=1.6\times10^{-19}J\)</span>），电离度（用MATLAB计算） <span class="math display">\[
+\frac{n_i}{(n_n+n_i)}\approx\frac{n_i}{n_n}\approx10^{-122}
+\]</span> 这是非常非常小的数。电离度随室温升高逐渐升高，当 <span class="math inline">\(k_B\)</span> 接近 <span class="math inline">\(U_i\)</span> 时，电离度急剧上升（电子雪崩），气体变成部分电离等离子体，最终变成完全电离等离子体。</p>
+<p>电离是一个动态过程，不只有电离，还有复合，那么两者就要找到一个平衡态。萨哈方程物理意义：</p>
+<ul>
+<li>在冷气体中，一个原子经过一系列概率极小的有利碰撞被加速到速度很高，能量远高于平均能量，最终被电离。式 <span class="math inline">\(\eqref{1.1}\)</span> 的指数因子就表示这种快速原子随 <span class="math inline">\({U_i/k_BT}\)</span> 指数下降；</li>
+<li>被电离原子遇到电子很可能会发生复合，又变为中性原子，即复合率依赖于电子密度，而电子密度等于<span class="math inline">\(n_i\)</span>，所以电离度随<span class="math inline">\(n_i\)</span>减小，所以式 <span class="math inline">\(\eqref{1.1}\)</span> 右边有一项<span class="math inline">\(n_i^{-1}\)</span>。</li>
+</ul>
+<p>快速原子会很快被电离，电离度随即增大，离子密度、电子密度增大，但这又会导致复合率增大，电离度减小，二者处于动态平衡中。</p>
+<h2 id="等离子体定义">1.2 等离子体定义</h2>
+<p>Chen书中给出的传统意义上的等离子体的定义，</p>
+<blockquote>
+<p>A plasma is a quasineutral gas of charged and neutral particles which exhibits collective behavior.</p>
+</blockquote>
+<p class="note note-info">
+<small>王晓刚老师书中给出了更广泛的定义，以此涵盖“弱电离等离子体”、“单分量”和“复杂等离子体”以及“夸克-胶子等离子体”：包含足够数量的非束缚态基本相互作用荷的多粒子体系。</small>
+</p>
+<p>两个重要概念</p>
+<ul>
+<li><p>准中性 quasineutral</p>
+<p>见 <a href="#1-4-徳拜屏蔽">1.4</a> 节详细讨论</p></li>
+<li><p>集体行为 collective behavior</p></li>
+</ul>
+<p>等离子体由带电粒子组成，当电荷运动时，由库伦力引起正负电荷局部聚集，从而产生电场、电流以及相应的磁场。这些场影响了远处其他带电粒子的运动。</p>
+<p>考虑 <span class="math inline">\(A\)</span>，<span class="math inline">\(B\)</span> 两小块稍微带电的区域。两者库仑力随 <span class="math inline">\(1/r^2\)</span> 减小，而对于给定立体角（<span class="math inline">\(\Delta r/r=constant\)</span>），能影响 <span class="math inline">\(A\)</span> 的 <span class="math inline">\(B\)</span> 的体积随 <span class="math inline">\(r^3\)</span> 增大。所以，等离子体之间存在长程库仑力。</p>
+<p><img src="/ass/20200423-longrange.jpg" srcset="/img/loading.gif" lazyload /></p>
+<blockquote>
+<p>By “collective behavior” we mean motions that depend not only on local conditions but on the state of the plasma in remote regions as well.</p>
+</blockquote>
+<p>所谓“集体行为”，指的是不仅取决于局部条件还取决于远距离区域等离子体状态的运动。</p>
+<h2 id="温度的概念">1.3 温度的概念</h2>
+<p>一维麦克斯韦分布 <span class="math display">\[
+f(u)=Aexp(-\frac{1}{2}mu^2/k_BT)
+\label{1.2}\tag{1.2}
+\]</span></p>
+<p>粒子数密度 <span class="math display">\[
+n=\int^\infty_{-\infty}f(u)du
+\label{1.3}\tag{1.3}
+\]</span></p>
+<p><span class="math display">\[
+A=n(\frac{m}{2\pi k_BT})^{1/2}
+\label{1.4}\tag{1.4}
+\]</span></p>
+<p><img src="/ass/20200423-maxwellian.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>分布宽度与常数 <span class="math inline">\(T\)</span> 有关，我们称其为温度。其确切含义是什么？先来看一下平均动能，这里不详细展开 <span class="math display">\[
+E_{av}=\frac{1}{2}k_BT
+\label{1.7}\tag{1.7}
+\]</span> 推广到三维就是 <span class="math inline">\(E_{av}=\frac{3}{2}k_BT\)</span> 。因此，每个自由度的平均动能为 <span class="math inline">\(\frac{1}{2}k_BT\)</span> 。</p>
+<p>方便起见，直接用 <span class="math inline">\(T\)</span> 代表能量（将 <span class="math inline">\(k_B\)</span> 吸收进 <span class="math inline">\(T\)</span> ），或者说用能量单位（ <span class="math inline">\(eV\)</span> ）来表示温度，令 $ k_BT=1 eV=1.6^{-19} J$，则</p>
+<p><span class="math display">\[
+T=\frac{1.6\times10^{-19}\ J}{1.38\times10^{-23}\ J/K}\approx11600\ K
+\]</span></p>
+<p>所以转换系数为</p>
+<p><span class="math display">\[
+1\,eV=11600\,K
+\]</span></p>
+<p>等离子体温度为 <span class="math inline">\(2\,eV\)</span> 就是指其 <span class="math display">\[k_BT\]</span> 为 <span class="math display">\[2\,eV\]</span> ，或者说其三维平均动能 <span class="math inline">\(E_{av}=3\,eV\)</span> 。</p>
+<p>等离子体中的离子之间以及电子之间的碰撞率要大于离子和电子之间的碰撞率，所以它们一般分别处于独立的麦克斯韦分布中（分别处于热平衡状态），所以要分开提及它的温度 <span class="math inline">\(T_i\)</span> 和 <span class="math inline">\(T_e\)</span> 。当存在磁场 <span class="math inline">\(B\)</span> 时，单一类粒子都可能处于不同温度，因为沿着 <span class="math inline">\(B\)</span> 或垂直于 <span class="math inline">\(B\)</span> 作用的力是不同的，这样就可能产生垂直和平行两个方向上的两种分布。</p>
+<p>荧光灯管内电子温度高达 $20000,K $ ，但其实摸起来远没有那么热，一是因为荧光灯管内没有达到完全热平衡，即离子温度没有达到那么高；二是因为热容，即荧光灯管内的电子密度远低于大气压，也就是总的传输热量没有那么大。</p>
+<h2 id="德拜屏蔽">1.4 德拜屏蔽</h2>
+<p>在等离子体内引入如下通电圆球，由于电场作用，正电球围绕电子云，负电球围绕离子云。如果等离子体是冷的，且不存在热运动，则电子（离子）云的电荷量应该等于球上的电荷量，即电场被完全屏蔽，球间不存在电场；而如果等离子体具有有限温度，电子（离子）云边缘屏蔽不彻底，此处势能近似等于粒子热能 <span class="math inline">\(k_BT\)</span> ，稍有扰动就会逃逸，<span class="math inline">\(k_BT\)</span> 量级的电势会渗透到等离子体中并引起有限电场。</p>
+<p><img src="/ass/20200424-debyeshielding.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>下面计算其近似厚度。在等离子体中有一极板，使其电势一直为 <span class="math inline">\(\phi_0\)</span> （<span class="math inline">\(x=0\)</span>），计算 <span class="math inline">\(\phi(x)\)</span> 。离子质量远大于电子质量，因此在实验时间尺度上，离子近似不动，而形成一个均匀正电荷本底。一维泊松方程 <span class="math display">\[
+\varepsilon_0\nabla^2\phi=\varepsilon_0\frac{d^2\phi}{dx^2}=-e(n_i-n_e)\ \ \ \ (Z=1)
+\label{1.12}\tag{1.12}
+\]</span> <img src="/ass/20200424-potentialdistribution.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>考虑势能 <span class="math inline">\(q\phi\)</span> ，电子分布函数为（麦克斯韦分布加上电势） <span class="math display">\[
+f(u)=Aexp[-(\frac{1}{2}mu^2+q\phi)/k_BT_e]
+\label{1.13}\tag{1.13}
+\]</span> 可以看出，势能越大，粒子数越少。令 <span class="math inline">\(q=-e\)</span> ，并注意到 <span class="math display">\[n_e(\phi \rightarrow 0)=n_{\infty}\]</span> ，对 <span class="math inline">\(u\)</span> 积分，得到 <span class="math display">\[
+n_e=n_\infty exp(e\phi/k_BT_e)
+\]</span> 该式详细物理考察见 3.5 节。结合式 <span class="math inline">\(\eqref{1.12}\)</span> ，有 <span class="math display">\[
+\varepsilon_0\frac{d^2\phi}{dx^2}=en_\infty(e^{e\phi/k_BT_e}-1)
+\]</span> 当 <span class="math inline">\(|e\phi/k_BT_e|\ll1\)</span> 时（极板附近不能简化，因为 <span class="math inline">\(|e\phi/k_BT_e|\)</span> 可能会很大，不过该区域电势下降非常快，对厚度影响不大），将上式泰勒展开并取线性项（第一项） <span class="math display">\[
+\frac{d^2\phi}{dx^2}=\frac{4\pi n_\infty e^2}{k_BT_e}
+\label{1.15}\tag{1.15}
+\]</span> 定义 <span class="math display">\[
+\lambda_D\equiv(\frac{\varepsilon_0 k_BT_e}{ne^2})^{1/2}
+\label{1.16}\tag{1.16}
+\]</span> 其中 <span class="math inline">\(n\)</span> 表示 <span class="math display">\[n_\infty\]</span> ，<span class="math display">\[k_BT\]</span> 单位为焦耳，一般简写为 <span class="math display">\[T_{eV}\]</span>​ 时单位为 <span class="math inline">\(eV\)</span> ，式 <span class="math inline">\(\eqref{1.15}\)</span> 的解为 <span class="math display">\[
+\phi=\phi_0 exp(-|x|/\lambda_D)
+\label{1.17}\tag{1.17}
+\]</span> <span class="math inline">\(\lambda_D\)</span> 称为德拜长度，是屏蔽距离或鞘层厚度的度量。</p>
+<p>由公式分析，当密度增加时，<span class="math inline">\(\lambda_D\)</span> 减小，因为电荷云中包含的电子数量增加，屏蔽效果变好了；此外，<span class="math inline">\(\lambda_D\)</span> 还随 <span class="math inline">\(KT_e\)</span> 增大而增大，因为热运动使得电子“不老实”，更容易逃逸，从而增大电荷云厚度；最后，注意 <span class="math inline">\(\lambda_D\)</span> 定义中使用的是电子温度（完全稳恒状态采用较冷的那类粒子的温度）。</p>
+<p>将 <span class="math inline">\(\varepsilon_0=8.85\times10^{-12}\ F/m\)</span> 、<span class="math inline">\(k_B=1.38\times10^{-23}\ J/K\)</span> 和 <span class="math inline">\(e=1.6\times10{-19}\ C\)</span> 带入式 <span class="math inline">\(\eqref{1.16}\)</span> 可得第一式， <span class="math display">\[
+\begin{split}
+\lambda_D&amp;=69(T_e/n)^{1/2}\ m,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T_e为\ K\\
+\lambda_D&amp;=7430(k_BT_e/n)^{1/2}\ m,\ \ \ \ \ \ k_BT_e为\ eV
+\end{split}
+\label{1.18}\tag{1.18}
+\]</span></p>
+<hr />
+<p>这里有点绕，脑子不清晰搞了一晚上。除了 Chen 的书，还参考了郑坚老师的《<a target="_blank" rel="noopener" href="http://muchong.com/t-3603837-1">等离子体物理理论</a>》一书（这本书理论推导极好，能看出老师的一番苦心），以及 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Electronvolt#Temperature">维基百科</a> （把单位列出来就清晰多了）。在我看来，这里有两种思路：</p>
+<p>Chen：直接令 <span class="math inline">\(k_BTe\)</span> 单位为 <span class="math inline">\(eV\)</span> ，为了保持整个式子量纲不变，只要能量单位仍为 <span class="math inline">\(J\)</span> 即可，也就是将 <span class="math inline">\(k_BTe\ (eV)\)</span> 乘以 <span class="math inline">\(1.6\times10^{-19}\ J/eV\)</span> 。这样，将第一式根号内同乘 <span class="math inline">\(k_B\)</span> ，再将能量和电子伏特的转换系数乘进去就可以了。</p>
+<p>郑坚：这个没有第一个这么绕。为了便于区分，将以 <span class="math inline">\(K\)</span> 为单位的温度表示为 <span class="math display">\[T_k\]</span> ，而将以 <span class="math inline">\(eV\)</span> 为单位的温度表示为 <span class="math inline">\(T_{eV}\)</span></p>
+<ul>
+<li><span class="math inline">\(T_k\,(K)\)</span> 为温度 → <span class="math inline">\(k_BT_k\ (J)\)</span> 为能量 →</li>
+<li><span class="math inline">\(\frac{k_BT_k\ (J)}{1.6\times10^{-19}\ (J/eV)}\)</span> 也为能量，而单位变为 <span class="math inline">\(eV\)</span> →</li>
+<li><span class="math inline">\(\frac{1.38\times10^{-23}\ (J/K)}{1.6\times10^{-19}\ (J/eV)}\ T_k\ (K)\)</span> → <span class="math inline">\(\frac{T_k\ (K)}{11600\ (eV/K)}\)</span> →</li>
+<li><span class="math display">\[\frac{T_k}{11600}\ (eV)\]</span> → <span class="math inline">\(T_{eV}\ (eV)\)</span> 为温度</li>
+</ul>
+<p><span class="math display">\[
+T_k=11600\ T_{eV}\ (K)
+\]</span> 然后直接将此式带入第一式就可以了，不需要出现 <span class="math inline">\(k_B\)</span> 。</p>
+<ul>
+<li>Chen 的思路是保留 <span class="math inline">\(k_B\)</span> ，整体作为能量进行单位变换，<span class="math inline">\(J\)</span> → <span class="math inline">\(eV\)</span>；</li>
+<li>郑坚的思路是直接将 <span class="math inline">\(k_B\)</span> 吸收进温度里，温度就是能量，然后进行单位变换，即 <span class="math inline">\(K\)</span> → <span class="math inline">\(J\)</span> → <span class="math inline">\(eV\)</span>。</li>
+</ul>
+<hr />
+<p>现在来看“准中性”的意义。如果系统尺寸 <span class="math inline">\(L\)</span> 远大于 <span class="math inline">\(\lambda_D\)</span> ，那么当系统引入外电势时，该电势就会在远小于 <span class="math inline">\(L\)</span> 的尺寸内被屏蔽掉，使得等离子体的大部分区域免受大电势或电场的影响。在壁或障碍物的鞘层外，<span class="math inline">\(\nabla^2\phi\)</span> 非常小，<span class="math inline">\(n_i\)</span> 近似等于 <span class="math inline">\(n_e\)</span> ，通常小于 <span class="math inline">\(1/10^6\)</span> 。只能有小的电荷不平衡引起 <span class="math inline">\(k_BT/e\)</span> 量级的电势。等离子体是准中性的，即 <span class="math inline">\(n_i \simeq n_e \simeq n\)</span> ，其中 <span class="math inline">\(n\)</span> 为公共密度，称为等离子体密度，但还没有准中性到所有电磁力都消失。</p>
+<p>一个电离气体能成为等离子体的一个重要判据是：气体足够稠密，使得 <span class="math inline">\(\lambda_D\)</span> 远小于 <span class="math inline">\(L\)</span> 。</p>
+<p>如果电子速度太快，它们之间的碰撞不足以维持热分布，那么就可以阻止德拜屏蔽。如果电子非常热，电子碰撞不频繁，就会有这个现象。在这种情况下，一些电子被离子捕获，以一个角度切入离子，但是电子速度太快，导致电子像卫星一样绕离子转动。有人称这种现象为“反屏蔽“讲到朗缪尔探针时细说。</p>
+<h2 id="等离子体参数">1.5 等离子体参数</h2>
+<p>只有当电荷云中有足够数量粒子时，徳拜屏蔽才有效，否则在统计学上就不是一个有效的概念。由式 <span class="math inline">\(\eqref{1.17}\)</span> 可以计算出徳拜球内的粒子数 <span class="math inline">\(N_D\)</span> <span class="math display">\[
+N_D=n\frac{4}{3}\pi\lambda_D^3=1.38\times10^6T^{3/2}/n^{1/2}\ \ \ \ (T单位K)
+\label{1.19}\tag{1.19}
+\]</span> 除了 <span class="math inline">\(\lambda_D\ll L\)</span> ，"集体行为"还要求 <span class="math display">\[
+N_D\ggg1
+\label{1.20}\tag{1.20}
+\]</span></p>
+<h2 id="等离子体判据">1.6 等离子体判据</h2>
+<p>碰撞就要牵扯到碰撞频率（时间）的问题。例如，飞机尾气中的弱电离气体的碰撞太过频繁，以至于他们受普通流体动力而不是电磁力支配，所以不能认为是等离子体。如果 <span class="math inline">\(\omega\)</span> 是等离子体振荡频率，<span class="math inline">\(\tau\)</span> 是带电粒子与中性原子的平均碰撞时间，则等离子体应满足 <span class="math inline">\(\omega\tau&gt;1\)</span> 。</p>
+<p>至此，等离子体必须满足三个条件</p>
+<ul>
+<li><span class="math inline">\(\lambda_D\ll L\)</span></li>
+<li><span class="math inline">\(N_D\ggg1\)</span></li>
+<li><span class="math inline">\(\omega\tau&gt;1\)</span></li>
+</ul>
+<h2 id="等离子体物理应用">1.7 等离子体物理应用</h2>
+<p>等离子体可以由两个参量 <span class="math inline">\(n\)</span> 和 <span class="math inline">\(T\)</span> （以后一般 <span class="math inline">\(T\)</span> 单位为 <span class="math inline">\(eV\)</span> ）来表征：<span class="math inline">\(n\)</span> 从 <span class="math inline">\(10^6\)</span> 到 <span class="math inline">\(10^{34}m^{-3}\)</span> 跨越 <span class="math inline">\(28\)</span> 个量级，<span class="math inline">\(T\)</span> 从 <span class="math inline">\(0.1\)</span> 到 <span class="math inline">\(10^6eV\)</span> 跨越 <span class="math inline">\(7\)</span> 个量级，而空气和水只差 <span class="math inline">\(10^3\)</span> ，水和白矮星只差 <span class="math inline">\(10^5\)</span> ，即使中子星和水也只差 <span class="math inline">\(10^{15}\)</span> ，等离子体跨度之广泛可见一斑。</p>
+<h4 id="气体放电气体电子学">1.7.1 气体放电（气体电子学）</h4>
+<p>等离子体最早是朗缪尔（Langmuir）、汤克斯（Tonks）等人于1920年代开始的。</p>
+<h4 id="受控热核聚变">1.7.2 受控热核聚变</h4>
+<p>现代等离子体物理学始于1952年左右，当时有人提出控制氢弹聚变反应。等离子体的发展很大一部分要归功于受控热核聚变。</p>
+<h4 id="空间物理">1.7.3 空间物理</h4>
+<p>2014年，哈尔滨工业大学被国家发改委正式确认为国家重大科技基础设施项目 <a target="_blank" rel="noopener" href="http://space.hit.edu.cn/sesri">空间环境地面模拟装置</a>（ <abbr title="Space Environment Simulation Research Infrastructure">SESRI</abbr> ）牵头建设单位。</p>
+<h4 id="现代天体物理学">1.7.4 现代天体物理学</h4>
+<h4 id="mhd-能量变换和离子推进">1.7.5 MHD 能量变换和离子推进</h4>
+<p>Magnetohydrodynamic (MHD) 能量转换利用致密等离子体射流穿过磁场来发电。<span class="math inline">\(\vec{F}=q\vec{v}\times\vec{B}\)</span> ，离子上移，电子下移，以此来产生电势差</p>
+<p><img src="/ass/20200424-MHDgenerator.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>一个重要应用是 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Isn7FoJvtRY">霍尔推进器</a> 。</p>
+<p><img src="/ass/20200427-hall_thruster.png" srcset="/img/loading.gif" lazyload /></p>
+<h4 id="固态等离子体">1.7.6 固态等离子体</h4>
+<h4 id="气体激光器">1.7.7 气体激光器</h4>
+<h4 id="粒子加速器">1.7.8 粒子加速器</h4>
+<h4 id="工业等离子体">1.7.9 工业等离子体</h4>
+<p>半导体生产，磁控溅射镀膜（眼镜），弧光灯，清洁医学器具。</p>
+<h4 id="大气等离子体">1.7.10 大气等离子体</h4>
+<p>氩气、氦气射流（射频源）可以用来烧和伤口，大面积处理工业基材。</p>
+<p><br/></p>
+<hr />
+<section class="footnotes">
+<div class="footnote-list">
+<ol>
+<li>
+<span id="fn:1" class="footnote-text"><span>https://www.plasma-universe.com/99-999-plasma/ <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+</li>
+<li>
+<span id="fn:2" class="footnote-text"><span>不可观测物质占比要大得多。暗能量约68%，暗物质约27%，普通物质仅占约不到5%。也就是说人类处于5%中的1%。<a target="_blank" rel="noopener" href="https://science.nasa.gov/astrophysics/focus-areas/what-is-dark-energy">详见</a> <a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩︎</a></span></span>
+</li>
+</ol>
+</div>
+</section>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/plasma/">plasma</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+					  <strong>本文作者: </strong><a href="/">Shixin</a><br>
+					  <strong>本文链接: </strong><a href="https://physxz.github.io/posts/10004/">https://physxz.github.io/posts/10004/</a><br>
+					  <strong>版权声明: </strong>本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/10005/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Markdown语法小记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/10003/">
+                        <span class="hidden-mobile">Is It Possible to Run CUDA on AMD GPUs?</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"peSlMsKe4nkYHz6YiMvqKAO5-gzGzoHsz","appKey":"6CkCA95u7NGj6f4flvSRyd7p","path":"window.location.pathname","placeholder":"昵称处填入QQ号自动获取QQ昵称头像和邮箱，有了邮箱会收到回复提醒哟，快来试试吧\\^o^/","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+    
+  </div>
+  
+  <div>
+    <br>© 2020-2022 <a href="https://babblingme.gitee.io" target="_blank" rel="nofollow noopener">Shixin</a>. All Rights Reserved.<br/>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次 •
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人 •
+    </span>
+    
+    
+    <!-- 网站运行时间 -->
+	<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+	<script>
+		var now = new Date(); 
+		function createtime() { 
+			var grt= new Date("03/25/2020 00:00:00");//在此处修改你的建站时间
+			now.setTime(now.getTime()+250); 
+			days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+			hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+			if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+			mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+			seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+			snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+			document.getElementById("timeDate").innerHTML = " 本站已安全运行 "+dnum+" 天 "; 
+			document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+		} 
+		setInterval("createtime()",250);
+	</script>
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2c6dc07d9ee870c7c5cde51c6acbce2d";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+  
+<script src="/js/sakura.js"></script>
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
