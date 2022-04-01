@@ -197,7 +197,8 @@ font:
 
 # 指定自定义 .js 文件路径，支持列表；路径是相对 source 目录，如 /js/custom.js 对应存放目录 source/js/custom.js
 # Specify the path of your custom js file, support list. The path is relative to the source directory, such as `/js/custom.js` corresponding to the directory `source/js/custom.js`
-custom_js: /js/sakura.js
+# custom_js: /js/snowflower.js
+custom_js: 
 
 # 指定自定义 .css 文件路径，用法和 custom_js 相同
 # The usage is the same as custom_js
@@ -843,7 +844,7 @@ about:
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle: 修身 齐家 治学 平天下
-  avatar: /img/avatar.jpg
+  avatar: /img/zkqiang.JPG-slim
   name: "Shixin"
   intro: "科研狗 / 泛爱好者 / 观察者"
   # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，`class` 代表图标的 css class，添加 `qrcode` 后，图标不再是链接而是悬浮二维码
