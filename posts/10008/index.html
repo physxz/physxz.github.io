@@ -1,0 +1,787 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Shixin">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="三大理论框架之一：单粒子轨道理论。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="等离子体物理学导论02单粒子运动">
+<meta property="og:url" content="https://physxz.github.io/posts/10008/index.html">
+<meta property="og:site_name" content="Shixin&#39;s blog">
+<meta property="og:description" content="三大理论框架之一：单粒子轨道理论。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://physxz.github.io/img/20200405-plasma.jpg">
+<meta property="article:published_time" content="2020-04-27T14:36:15.000Z">
+<meta property="article:modified_time" content="2022-07-08T09:08:13.935Z">
+<meta property="article:author" content="Shixin">
+<meta property="article:tag" content="plasma">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://physxz.github.io/img/20200405-plasma.jpg">
+  
+  
+  <title>等离子体物理学导论02单粒子运动 - Shixin&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/email.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"physxz.github.io","root":"/","version":"1.8.13","typing":{"enable":true,"typeSpeed":70,"cursorChar":"❤","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"2c6dc07d9ee870c7c5cde51c6acbce2d","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Shixin&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/bloom.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="等离子体物理学导论02单粒子运动">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-04-27 22:36" pubdate>
+        2020年4月27日晚上10点36分
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.2k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      43 分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">等离子体物理学导论02单粒子运动</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年7月8日下午5点08分
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>三大理论框架之一：单粒子轨道理论。<span id="more"></span></p>
+<h2 id="引言">2.1 引言</h2>
+<p>等离子体的行为有时像流体，有时又像单个粒子集合，本章先研究单个粒子在电磁场中的行为。与第3章不同，本章<strong>假定 <span class="math inline">\(E\)</span> 场和 <span class="math inline">\(B\)</span> 场是预先确定的</strong>，并且不受带电粒子的影响。</p>
+<p>单粒子轨道理论把等离子体看作大量独立的带电粒子组成的集体，只讨论单个带电粒子在外加电磁场中的运动，而忽略粒子间的相互作用。粒子轨道理论适用于稀薄等离子体，对于稠密等离子体也提供某些描述，但由于没有考虑基体效应，局限性很大。粒子轨道理论的基本方法是求解粒子的运动方程。</p>
+<h2 id="均匀-e-和-b-场">2.2 均匀 <span class="math inline">\(E\)</span> 和 <span class="math inline">\(B\)</span> 场</h2>
+<h3 id="e0">2.2.1 <span class="math inline">\(E=0\)</span></h3>
+<p>运动方程 <span class="math display">\[
+m\frac{d\vec{v}}{dt}=q\vec{v}\times\vec{B}
+\label{2.1}\tag{2.1}
+\]</span> 取 <span class="math inline">\(\vec{B}\)</span> 沿 <span class="math inline">\(\hat{z}\)</span> 方向（ <span class="math inline">\(\vec{B}=B\hat{z}\)</span> ），定义两个量</p>
+<ul>
+<li>回旋频率</li>
+</ul>
+<p><span class="math display">\[
+\omega_c\equiv\frac{|q|B}{m}
+\label{2.3}\tag{2.3}
+\]</span></p>
+<ul>
+<li>回旋半径（拉莫尔半径）</li>
+</ul>
+<p><span class="math display">\[
+r_L\equiv\frac{v_\bot}{\omega_0}=\frac{mv_{\bot c}}{|q|B}
+\label{2.6}\tag{2.6}
+\]</span></p>
+<p>由此求解方程 <span class="math inline">\(\eqref{2.1}\)</span> 得速度解 <span class="math display">\[
+\begin{aligned}
+v_x&amp;=v_{\bot}e^{i\omega_ct}\\
+v_y&amp;=\pm v_{\bot}e^{i\omega_ct}
+\end{aligned}
+\label{2.4}\tag{2.4}
+\]</span> 轨迹解 <span class="math display">\[
+x-x_0=r_Lsin\ \omega_ct,\ \ \ \ y-y_0=\pm r_Lcos\ \omega_ct,\ \ \ \ z=z_0+v_{z0}t
+\label{2.7}\tag{2.7}
+\]</span> 上式表明带电粒子在垂直于 <span class="math inline">\(\vec{B}\)</span> 方向绕导向中心（ <span class="math inline">\(x_0,y_0\)</span> ）做圆周运动。而导向中心沿 <span class="math inline">\(\vec{B}\)</span> 方向做匀速直线运动。按照右手螺旋，带电粒子的旋转方向总是使得其产生的磁场与外加磁场方向相反，也就是说，等离子体是<strong>抗磁</strong>的。通常，带电粒子的轨迹是一条螺旋线。</p>
+<p><img src="/ass/20200504-single_charged_particle_tracing_uni_B.gif" srcset="/img/loading.gif" lazyload /></p>
+<p>带电粒子速度分量之比为 <span class="math inline">\(v_x:v_y:v_z=2:0:1\)</span> ，轨迹为等距螺旋线。电子回旋半径远小于离子（此处有意将电子回旋半径放大以方便观察），前进方向与离子相同，转动方向与离子相反。</p>
+<h3 id="有限-e-场">2.2.2 有限 <span class="math inline">\(E\)</span> 场</h3>
+<p>取 <span class="math inline">\({\vec{B}}\)</span> 沿 <span class="math inline">\(x-y\)</span> 平面，这样 <span class="math inline">\(E_y=0\)</span> <span class="math display">\[
+m\frac{d\vec{v}}{dt}=q(\vec{E}+\vec{v}\times\vec{B})
+\label{2.8}\tag{2.8}
+\]</span> 先求 <span class="math inline">\(\vec{B}\)</span> 方向（纵向）的运动 <span class="math display">\[
+v_z=\frac{qE_z}{m}t+v_{z0}
+\label{2.9}\tag{2.9}
+\]</span> 导向中心沿 <span class="math inline">\(\vec{B}\)</span> 方向做匀加速直线运动。再来看横向运动 <span class="math display">\[
+\begin{aligned}
+v_x&amp;=v_{\bot}e^{i\omega_ct}\\
+v_y&amp;=\pm v_{\bot}e^{i\omega_ct}-\frac{E_x}{B}
+\end{aligned}
+\label{2.12}\tag{2.12}
+\]</span> 第二式比 <span class="math inline">\(\eqref{2.4}\)</span> 多了一项，即漂移项 <span class="math inline">\(-\frac{E_x}{B}\)</span> 。具体来分析一下这一项。在拆解并求解 <span class="math inline">\(\eqref{2.8}\)</span> 过程中可以看出 <span class="math inline">\(m\frac{d\vec v}{dt}\)</span> 项只给出回旋运动，所以可以忽略这一项，方程变为 <span class="math display">\[
+\vec{E}+\vec{v}\times\vec{B}=0
+\label{2.13}\tag{2.13}
+\]</span> 用 <span class="math inline">\(B\)</span> 叉乘上式，得到 <span class="math display">\[
+\vec{v}_{\bot gc}=\frac{\vec{E}\times\vec B}{B^2}\equiv\vec{v}_E
+\label{2.15}\tag{2.15}
+\]</span> 此式即导向中心的电场漂移。注意， <span class="math display">\[v_E\]</span> 与 <span class="math display">\[q,m,v_{\bot}\]</span>​ 都无关。粒子在纵向上受电场分量加速。粒子在横向上受到磁场力和电场力的共同作用。</p>
+<ul>
+<li>前（右）半周：最初，粒子有一沿 <span class="math inline">\(x\)</span> 轴的初速度，磁力垂直向下，粒子完全由电场力作用加速，慢慢的粒子速度变大，磁力随之变大（回旋半径也变大），且磁力在 <span class="math inline">\(x\)</span> 轴的分量也变大，电场力加速度逐渐被削弱，到右顶点时，磁力达到最大，速度也最大，然后，粒子开始减速，到下顶点时回到初速度（只看横向）；</li>
+<li>后（左）半周：过了下顶点，磁力分量与电场力分量叠加作用于粒子，粒子继续减速（回旋半径相应变小），左顶点达到最小，而后回到初始位置并加速到初速度（只看横向）</li>
+</ul>
+<p>所以，粒子整个过程只受到电场力 <span class="math inline">\(z\)</span> 轴分量的加速，电场 <span class="math inline">\(x\)</span> 轴分量在粒子前半周及后半周所作功抵消，磁力未做功。而回旋半径左小右大，无法形成闭合圆，就导致了粒子导向中心向下漂移。由下方第二张图可见一斑。</p>
+<p>电子旋转方向相反，这样电场对它的加减速就同离子一样，是先加速在减速（纵向上是减速的，所以螺旋间距变小），这导致回旋半径也是先大后小，最终造成电子和离子漂移方向相同。</p>
+<p><img src="/ass/20200504-single_charged_particle_tracing_uni_B+E.gif" srcset="/img/loading.gif" lazyload /></p>
+<p>注意 <span class="math inline">\(B\)</span> 和 <span class="math inline">\(E\)</span> 在 <span class="math inline">\(x-z\)</span> 平面内不垂直，<span class="math inline">\(E_x:E_y:E_z=15:0:2\)</span> ，粒子轨迹为变间距斜螺旋线。</p>
+<p><img src="/ass/20200504-single_charged_particle_tracing_uni_B+E2.gif" srcset="/img/loading.gif" lazyload /></p>
+<p>上图图例给出粒子速度，蓝色最慢，红色最快，从轨迹左右对比可以看出，粒子在右侧时最快，在左侧时最慢。粒子整体上是加速前进的，能量来自于电场 <span class="math inline">\(z\)</span> 轴分量，电场 <span class="math inline">\(x\)</span> 轴分量在粒子前半周及后半周所作功抵消。</p>
+<h3 id="重力场">2.2.3 重力场</h3>
+<p>用一般力 <span class="math inline">\(\vec{F}\)</span> 代替 <span class="math inline">\(\eqref{2.8}\)</span> 中的 <span class="math inline">\(q\vec{E}\)</span> ，就可以将上述结果用到其他力场。这样则力 <span class="math inline">\(\vec{F}\)</span> 引起的导向中心漂移为 <span class="math display">\[
+v_f=\frac{1}{q}\frac{\vec{F}\times\vec{B}}{B^2}
+\label{2.17}\tag{2.17}
+\]</span> 如果这个力是重力，则 <span class="math display">\[
+v_g=\frac{m}{q}\frac{\vec{g}\times\vec{B}}{B^2}
+\label{2.18}\tag{2.18}
+\]</span> 重力漂移和电场漂移的一个重要不同是，电场对电子和离子的作用方向不同，而重力场对它们具有相同方向的作用力，这就导致如果重力对离子是先加速在减速，那么对电子就是先减速在加速，从而电子和离子漂移方向相反，所以等离子体中存在一个静电流密度 <span class="math display">\[
+\vec{j}=n(M+m)\frac{\vec{g}\times{\vec{B}}}{B^2}
+\label{2.19}\tag{2.19}
+\]</span> 因为粒子质量很小，所以重力非常小，<span class="math inline">\(v_g\)</span> 通常可以忽略，但当磁力线弯曲时，就存在一个因离心力而引起的有效重力。该力与质量无关，是不可忽略的。离心力是一种等离子体不稳定性的基础，它跟实际重力无关。</p>
+<h2 id="非均匀-b-场">2.3 非均匀 <span class="math inline">\(B\)</span> 场</h2>
+<p>以上讨论了均匀场，下面讨论非均匀场。对于非均匀场，电荷的运动方程一般是非线性的，严格求解一般不可能，我们近似求解，习惯上用小值 <span class="math inline">\(r_L/L\)</span> 展开，其中 <span class="math inline">\(L\)</span> 是非均匀性的标度长。这类理论叫做轨道理论，下面只讨论只含一种不均匀性的最简单情况。</p>
+<h3 id="nabla-bbot-b-梯度-b-漂移">2.3.1 <span class="math inline">\(\nabla B\bot B\)</span> ：梯度 <span class="math inline">\(B\)</span> 漂移</h3>
+<p>考虑密度在 <span class="math inline">\(y\)</span> 方向增大的直磁力线，根据回旋半径公式，在回旋半径与 <span class="math inline">\(B\)</span> 的密度成反比，即轨道底部回旋半径大于轨道顶部，这就引起了与 <span class="math inline">\(\nabla B\)</span> 和 <span class="math inline">\(B\)</span> 都垂直的漂移，且电子与离子漂移方向相反，并引起与 <span class="math inline">\(B\)</span> 垂直的电流。</p>
+<p>洛伦兹力 <span class="math inline">\(F =qv\times B\)</span> 对粒子一个回旋周期的作用力平均值为零 <span class="math inline">\(\bar{F}_x=0\)</span> ，现在来近似计算 <span class="math inline">\(\bar{F}_y\)</span> ，取式 <span class="math inline">\(\eqref{2.4}\)</span> 实数部分，得到 <span class="math display">\[
+F_y=-qv_xB_z(y)=-qv_\bot(cos\ \omega_ct)[B_0\pm r_L(cos\ \omega_ct)\frac{\partial B}{\partial y}]
+\label{2.20}\tag{2.20}
+\]</span> 假设 <span class="math inline">\(r_L=v_\bot /\omega_c\ll L\)</span> ，其中 <span class="math inline">\((L=|B|/|\nabla B|)\)</span> ，即回旋半径远小于磁场发生显著变化的特征空间尺度。在导向中心附近将磁场泰勒展开 <span class="math display">\[
+\begin{aligned}
+B&amp;=B_0+(r\cdot\nabla)B+...\\
+B_z&amp;=B_0+y(\partial B_z/\partial y)+...
+\end{aligned}
+\label{2.21}\tag{2.21}
+\]</span> 式 <span class="math inline">\(\eqref{2.20}\)</span> 第一项对于一个回旋周期平均为零，第二项中 <span class="math inline">\((cos\ \omega_ct)^2\)</span> 平均为 <span class="math inline">\(1/2\)</span> ，所以 <span class="math display">\[
+\bar{F}_y=\mp qv_\bot r_L\frac{1}{2}\frac{\partial B}{\partial y}
+\label{2.22}\tag{2.22}
+\]</span> 由此，导向中心漂移速度为 <span class="math display">\[
+v_{gc}=\frac{1}{q}\frac{F\times B}{B^2}=\frac{1}{q}\frac{\bar F_y}{|B|}\hat x=\mp\frac{v_\bot r_L}{B}\frac{1}{2}\frac{\partial B}{\partial y}\hat x
+\label{2.23}\tag{2.23}
+\]</span> 因为 <span class="math inline">\(y\)</span> 轴为任意选择，将上式推广为 <span class="math display">\[
+v_{gc}=\pm\frac{1}{2}v_\bot r_L\frac{B\times \nabla B}{B^2}
+\label{2.24}\tag{2.24}
+\]</span></p>
+<h3 id="弯曲-b-场曲率漂移">2.3.2 弯曲 <span class="math inline">\(B\)</span> 场：曲率漂移</h3>
+<p>假设磁力线以常曲率半径 <span class="math inline">\(R_c\)</span> 弯曲，且 <span class="math inline">\(|B|\)</span> 为常数（即无梯度分布），粒子导向中心沿磁力线运动，受到离心力作用 <span class="math display">\[
+F_{cf}=\frac{mv_\parallel^2}{R_c}\hat r=mv_\parallel^2\frac{R_c}{R_c^2}
+\label{2.25}\tag{2.25}
+\]</span> 由式 <span class="math inline">\(\eqref{2.17}\)</span> 得 <span class="math display">\[
+v_R=\frac{1}{q}\frac{F_{cf} \times B}{B^2}=\frac{mv_\parallel^2}{qB^2}\frac{R_c\times B}{R_c^2}
+\label{2.26}\tag{2.26}
+\]</span> 这就是曲率漂移。</p>
+<p><img src="/ass/20200503-curvedmagneticfield.png" srcset="/img/loading.gif" lazyload /></p>
+<p>但实际上当磁场存在曲率时，一定存在梯度，不然不符合麦克斯韦方程。考虑 <span class="math inline">\(|B|\)</span> 随半径减小，在真空中 <span class="math inline">\(\nabla\times B=0\)</span> 。在上图柱坐标系中， <span class="math display">\[
+(\nabla\times B)_z=\frac{1}{r}\frac{\partial}{\partial r}(rB_{\theta})=0,\ \ \ \ \ B_{\theta}\propto\frac{1}{r}
+\label{2.27}\tag{2.27}
+\]</span> 于是 <span class="math display">\[
+|B|\propto\frac{1}{R_c},\ \ \ \ \ \frac{\nabla|B|}{|B|}=-\frac{R_c}{R_c^2}
+\label{2.28}\tag{2.28}
+\]</span> 由方程 <span class="math inline">\(\eqref{2.24}\)</span> 得到 <span class="math display">\[
+\begin{aligned}
+v_{\nabla B}&amp;=\mp\frac{1}{2}\frac{v_\bot r_L}{B^2}B\times|B|\frac{R_c}{R_c^2}\\
+&amp;=\pm\frac{1}{2}\frac{v_\bot^2}{\omega_c}\frac{R_c\times B}{R_c^2B}\\
+&amp;=\frac{1}{2}\frac{m}{q}v_\bot^2\frac{R_c\times B}{R_c^2B^2}
+\end{aligned}
+\label{2.29}\tag{2.29}
+\]</span> 合并两者 <span class="math display">\[
+v_{\nabla B}+v_R=\frac{m}{q}\frac{R_c\times B}{R_c^2B^2}(v_\parallel^2+\frac{1}{2}v_\bot^2)
+\label{2.30}\tag{2.30}
+\]</span> 这就意味着，你不可能只靠磁场约束粒子，它总会漂移出环。</p>
+<h2 id="非均匀-e-场待更新">2.4 非均匀 <span class="math inline">\(E\)</span> 场（待更新）</h2>
+<h2 id="时变-e-场">2.5 时变 <span class="math inline">\(E\)</span> 场</h2>
+<h2 id="时变-b-场">2.6 时变 <span class="math inline">\(B\)</span> 场</h2>
+<h2 id="导向中心漂移概述">2.7 导向中心漂移概述</h2>
+<h2 id="绝热不变量">2.8 绝热不变量</h2>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/plasma/">plasma</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+					  <strong>本文作者: </strong><a href="/">Shixin</a><br>
+					  <strong>本文链接: </strong><a href="https://physxz.github.io/posts/10008/">https://physxz.github.io/posts/10008/</a><br>
+					  <strong>版权声明: </strong>本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/posts/10009/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">COMSOL模拟带电粒子在电磁场中的运动轨道</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/10007/">
+                        <span class="hidden-mobile">幻灯片新工具-Marp</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"peSlMsKe4nkYHz6YiMvqKAO5-gzGzoHsz","appKey":"6CkCA95u7NGj6f4flvSRyd7p","path":"window.location.pathname","placeholder":"昵称处填入QQ号自动获取QQ昵称头像和邮箱，有了邮箱会收到回复提醒哟，快来试试吧\\^o^/","avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+    
+  </div>
+  
+  <div>
+    <br>© 2020-2022 <a href="https://babblingme.gitee.io" target="_blank" rel="nofollow noopener">Shixin</a>. All Rights Reserved.<br/>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次 •
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人 •
+    </span>
+    
+    
+    <!-- 网站运行时间 -->
+	<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+	<script>
+		var now = new Date(); 
+		function createtime() { 
+			var grt= new Date("03/25/2020 00:00:00");//在此处修改你的建站时间
+			now.setTime(now.getTime()+250); 
+			days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+			hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+			if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+			mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+			seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+			snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+			document.getElementById("timeDate").innerHTML = " 本站已安全运行 "+dnum+" 天 "; 
+			document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+		} 
+		setInterval("createtime()",250);
+	</script>
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2c6dc07d9ee870c7c5cde51c6acbce2d";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+  
+    <script>
+      !function (e, t, a) {
+        function r() {
+          for (var e = 0; e < s.length; e++) s[e].alpha <= 0 ? (t.body.removeChild(s[e].el), s.splice(e, 1)) : (s[e].y--, s[e].scale += .004, s[e].alpha -= .013, s[e].el.style.cssText = "left:" + s[e].x + "px;top:" + s[e].y + "px;opacity:" + s[e].alpha + ";transform:scale(" + s[e].scale + "," + s[e].scale + ") rotate(45deg);background:" + s[e].color + ";z-index:99999");
+          requestAnimationFrame(r)
+        }
+
+        function n() {
+          var t = "function" == typeof e.onclick && e.onclick;
+          e.onclick = function (e) {
+            t && t(), o(e)
+          }
+        }
+
+        function o(e) {
+          var a = t.createElement("div");
+          a.className = "heart", s.push({
+            el: a,
+            x: e.clientX - 5,
+            y: e.clientY - 5,
+            scale: 1,
+            alpha: 1,
+            color: c()
+          }), t.body.appendChild(a)
+        }
+
+        function i(e) {
+          var a = t.createElement("style");
+          a.type = "text/css";
+          try {
+            a.appendChild(t.createTextNode(e))
+          } catch (t) {
+            a.styleSheet.cssText = e
+          }
+          t.getElementsByTagName("head")[0].appendChild(a)
+        }
+
+        function c() {
+          return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+        }
+
+        var s = [];
+        e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || function (e) {
+          setTimeout(e, 1e3 / 60)
+        }, i(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"), n(), r()
+      }(window, document);
+    </script>
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
